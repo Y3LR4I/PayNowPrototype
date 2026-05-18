@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo Fintech - Mockup Celular</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="smartphone">
+        <div class="screen">
+
+            <div id="login-screen" class="app-page">
+                <div class="brand">
+                    <h1>Pay<span>Now</span></h1>
+                    <p class="brand-sub">Conta digital para MEI´s</p>
+                </div>
+
+                <div class="login-form">
+                    <button class="btn-primary" id="btn-criar-conta" type="button">
+                        Criar conta
+                    </button>
+
+                    <p class="login-link">Entrar na minha conta</p>
+                </div>
+            </div>
+
+            <div id="cadastro-screen" class="app-page hidden-right">
+
+                <div class="cadastro-top">
+                    <button class="btn-close" id="btn-voltar">✕</button>
+                </div>
+
+                <div class="cadastro-header">
+                    <h1>Boas vindas ao&nbsp;<span>PayNow</span>!</h1>
+
+                    <h2>Qual o seu CPF/CNPJ?</h2>
+
+                    <p>Precisamos dele para abrir sua conta</p>
+                </div>
+
+                <div class="cadastro-form">
+                    <input type="text" id="cpf-cnpj" placeholder="Digite seu CPF ou CNPJ">
+
+                    <button class="btn-continuar" type="button">
+                        Continuar
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="dados-screen" class="app-page hidden-right">
+
+                <div class="cadastro-top">
+                    <div class="top-buttons">
+                        <button class="btn-back" id="btn-voltar-cpf">
+                            Voltar
+                        </button>
+
+                        <button class="btn-close" id="btn-fechar-dados">
+                            ✕
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cadastro-header">
+                    <h1>Informe seus dados pessoais</h1>
+
+                    <h2 class="titulo-nome">Nome</h2>
+
+                    <div class="cadastro-form">
+                        <input type="text" placeholder="Digite seu nome completo">
+                    </div>
+
+                    <h2 class="titulo-data">Data de nascimento:</h2>
+
+                    <div class="cadastro-form">
+                        <input type="text" id="data-nascimento" placeholder="DD/MM/AAAA">
+                    </div>
+
+                    <button class="btn-continuar" id="btn-continuar-dados" type="button">
+                        Continuar
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="contato-screen" class="app-page hidden-right">
+
+                <div class="cadastro-top">
+                    <div class="top-buttons">
+
+                        <button class="btn-back" id="btn-voltar-contato">
+                            Voltar
+                        </button>
+
+                        <button class="btn-close" id="btn-fechar-contato">
+                            ✕
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="cadastro-header">
+
+                    <h1>Agora, informe seus contatos</h1>
+
+                    <h2 class="titulo-nome">Telefone/Celular</h2>
+
+                    <div class="cadastro-form">
+                        <input type="text" id="telefone" placeholder="(00) 00000-0000">
+                    </div>
+
+                    <h2 class="titulo-nome">E-mail</h2>
+
+                    <div class="cadastro-form">
+                        <input type="email" id="email" placeholder="Digite seu e-mail">
+                    </div>
+
+                    <button class="btn-continuar" id="btn-continuar-contato" type="button">
+                        Continuar
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="email-screen" class="app-page hidden-right">
+
+                <div class="cadastro-top">
+                    <div class="top-buttons">
+
+                        <button class="btn-back" id="btn-voltar-email">
+                            Voltar
+                        </button>
+
+                        <button class="btn-close" id="btn-fechar-email">
+                            ✕
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="brand email-brand">
+                    <h1>Pay<span>Now</span></h1>
+                    <p class="brand-sub">Conta digital para MEI´s</p>
+                </div>
+
+                <div class="email-content">
+
+                    <h1 class="titulo-confirmacao">
+                        Digite o código
+                    </h1>
+
+                    <p class="subtitulo-confirmacao">
+                        Enviamos um código de 6 dígitos para seu email
+                    </p>
+
+                    <p class="email-mascarado" id="email-mascarado">
+                        i******@gmail.com
+                    </p>
+
+                    <div class="codigo-container">
+
+                        <input type="text" maxlength="1" class="codigo-input">
+                        <input type="text" maxlength="1" class="codigo-input">
+                        <input type="text" maxlength="1" class="codigo-input">
+                        <input type="text" maxlength="1" class="codigo-input">
+                        <input type="text" maxlength="1" class="codigo-input">
+                        <input type="text" maxlength="1" class="codigo-input">
+
+                    </div>
+
+                    <button class="btn-continuar" id="btn-confirmar-email">
+                        Continuar
+                    </button>
+
+                    <p class="reenviar-codigo">
+                        Reenviar código
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div id="documento-screen" class="app-page hidden-right">
+
+                <div class="cadastro-top">
+                    <div class="top-buttons">
+
+                        <button class="btn-back" id="btn-voltar-documento">
+                            Voltar
+                        </button>
+
+                        <button class="btn-close" id="btn-fechar-documento">
+                            ✕
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="brand email-brand">
+                    <h1>Pay<span>Now</span></h1>
+                    <p class="brand-sub">Conta digital para MEI´s</p>
+                </div>
+
+                <div class="documento-content">
+
+                    <h1 class="titulo-confirmacao">
+                        Tire uma foto do seu CPF ou CNH
+                    </h1>
+
+                    <div class="upload-box">
+
+                        <div class="upload-icon">
+                            📄
+                        </div>
+
+                    </div>
+
+                    <div class="dica-documento">
+                        Documento dentro da validade
+                    </div>
+
+                    <div class="dica-documento">
+                        Foto nítida e sem cortes
+                    </div>
+
+                    <div class="dica-documento">
+                        Todos os dados visíveis
+                    </div>
+
+                    <button class="btn-continuar" id="btn-tirar-foto">
+                        Tirar foto
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="dashboard-screen" class="app-page hidden-right">
+                <div class="header-dash">
+                    <div class="user-info">
+                        <p>Olá, bem-vindo</p>
+                        <h2>Alex Silva</h2>
+                    </div>
+                    <div class="avatar">AS</div>
+                </div>
+
+                <div class="balance-card">
+                    <span>Saldo disponível</span>
+                    <h3>R$ 4.850,20</h3>
+                </div>
+
+                <div class="actions-grid">
+                    <button class="action-btn">
+                        <div class="action-icon">💸</div>
+                        <span>Área Pix</span>
+                    </button>
+                    <button class="action-btn">
+                        <div class="action-icon">📊</div>
+                        <span>Investir</span>
+                    </button>
+                    <button class="action-btn">
+                        <div class="action-icon">📄</div>
+                        <span>Boletos</span>
+                    </button>
+                </div>
+
+                <div class="recent-activity">
+                    <h4>Atividades recentes</h4>
+
+                    <div class="transaction-item">
+                        <div class="trans-info">
+                            <span class="trans-title">Supermercado Pão de Açúcar</span>
+                            <span class="trans-date">Hoje, 10:24</span>
+                        </div>
+                        <div class="trans-value value-negative">- R$ 142,50</div>
+                    </div>
+
+                    <div class="transaction-item">
+                        <div class="trans-info">
+                            <span class="trans-title">Pix recebido - Joana R.</span>
+                            <span class="trans-date">Ontem, 18:02</span>
+                        </div>
+                        <div class="trans-value value-positive">+ R$ 350,00</div>
+                    </div>
+
+                    <div class="transaction-item">
+                        <div class="trans-info">
+                            <span class="trans-title">Assinatura Netflix</span>
+                            <span class="trans-date">12 Mai, 02:15</span>
+                        </div>
+                        <div class="trans-value value-negative">- R$ 55,90</div>
+                    </div>
+                </div>
+
+                <button class="btn-logout" id="btn-sair">Sair da conta</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,588 @@
+/* --- VARIÁVEIS DE ESTILO (Design System da Fintech) --- */
+:root {
+    --primary-color: #4553bd;
+    --secondary-color: #15217f;
+    --bg-dark: #1e1e24;
+    --bg-light: #f8f9fa;
+    --text-dark: #2d3436;
+    --text-muted: #b2bec3;
+    --phone-border: #2d3436;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #dfe6e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* --- MOCKUP DO CELULAR --- */
+.smartphone {
+    position: relative;
+    width: 360px;
+    height: 740px;
+    background: var(--phone-border);
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 4px solid #333;
+}
+
+/* Notch / Câmera Frontal */
+.smartphone::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 25px;
+    background: #000;
+    border-radius: 0 0 15px 15px;
+    z-index: 10;
+}
+
+/* Botão Home Virtual (Barra inferior) */
+.smartphone::after {
+    content: '';
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 5px;
+    background: #888;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+/* Tela Interna do Celular */
+.screen {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-light);
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- TELAS DO PROTÓTIPO (FINTECH) --- */
+.app-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px 24px 24px;
+    transition: transform 0.4s ease-in-out, opacity 0.3s;
+}
+
+/* Estado Escondido (para transições) */
+.hidden-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hidden-right {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- TELA 1: LOGIN --- */
+#login-screen {
+    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
+    color: white;
+    justify-content: flex-start;
+}
+
+.brand {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.brand h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.brand h1 span {
+    color: var(--secondary-color);
+}
+
+.brand-sub {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.login-form {
+    margin-top: 320px;
+    margin-bottom: 40px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--secondary-color);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #5b4bc4;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.login-link:hover {
+    opacity: 1;
+}
+
+/* --- TELA 2: DASHBOARD --- */
+#dashboard-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.header-dash {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.user-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.user-info h2 {
+    font-size: 1.2rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+}
+
+/* Card de Saldo */
+.balance-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.2);
+}
+
+.balance-card span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.balance-card h3 {
+    font-size: 1.8rem;
+    margin-top: 5px;
+}
+
+/* Grid de Ações Rápidas */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.action-btn {
+    background: white;
+    border: none;
+    padding: 15px 10px;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.1s;
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
+.action-icon {
+    width: 35px;
+    height: 35px;
+    background: #f1f2f6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+/* Lista de Transações Recentes */
+.recent-activity {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.recent-activity h4 {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f2f6;
+}
+
+.trans-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.trans-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.trans-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.trans-value {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.value-negative {
+    color: #ff7675;
+}
+
+.value-positive {
+    color: #2ecc71;
+}
+
+.btn-logout {
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: #ff7675;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+    align-self: center;
+}
+
+/* --- TELA DE CADASTRO --- */
+
+#cadastro-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    padding-top: 80px;
+}
+
+.cadastro-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.cadastro-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.cadastro-header p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.cadastro-form input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #dcdde1;
+    border-radius: 14px;
+    font-size: 1rem;
+    outline: none;
+    background: white;
+}
+
+.cadastro-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.cadastro-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.cadastro-header h1 span {
+    color: var(--secondary-color);
+}
+
+.btn-continuar {
+    width: 80%;
+    padding: 14px;
+    margin-top: 18px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-continuar:hover {
+    background: #5b4bc4;
+}
+
+.top-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+#dados-screen .cadastro-header h1 {
+    margin-bottom: 18px;
+}
+
+#contato-screen .cadastro-header h1 {
+    margin-bottom: 18px;
+}
+
+#contato-screen .titulo-nome,
+#contato-screen .titulo-data {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+#dados-screen .titulo-nome,
+#dados-screen .titulo-data {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+#email-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.email-brand {
+    margin-top: 20px;
+}
+
+.email-content {
+    margin-top: 30px;
+}
+
+.titulo-confirmacao {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.email-mascarado {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.codigo-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 0 6px;
+}
+
+.codigo-input {
+    width: 42px;
+    height: 55px;
+    border: 1px solid #dcdde1;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+.codigo-input:focus {
+    border-color: var(--primary-color);
+}
+
+.reenviar-codigo {
+    text-align: center;
+    margin-top: 18px;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.subtitulo-confirmacao {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.documento-content {
+    margin-top: 25px;
+}
+
+.upload-box {
+    width: 100%;
+    height: 220px;
+    border: 2px dashed #c8d0d8;
+    border-radius: 24px;
+    background: white;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-icon {
+    font-size: 4rem;
+    opacity: 0.7;
+}
+
+.dica-documento {
+    width: 100%;
+    min-height: 52px;
+    background: white;
+    border: 1px solid #dcdde1;
+    border-radius: 14px;
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.app-page {
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.app-page::-webkit-scrollbar {
+    display: none;
+}
+
+.documento-content {
+    padding-bottom: 80px;
+}
