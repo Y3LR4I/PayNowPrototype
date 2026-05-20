@@ -301,4 +301,86 @@ function initializeApp() {
         });
     }
 
+    /* -------------------------
+       DASHBOARD → PIX
+    ------------------------- */
+
+    const dashboardPixButtons = document.querySelectorAll('.dash-action');
+
+    if (dashboardPixButtons.length > 0) {
+        dashboardPixButtons[0].addEventListener('click', () => {
+            showPage('pix');
+        });
+    }
+
+    /* -------------------------
+       PIX → VOLTAR
+    ------------------------- */
+
+    const btnVoltarPix = document.getElementById('btn-voltar-pix');
+
+    if (btnVoltarPix) {
+        btnVoltarPix.addEventListener('click', () => {
+            showPage('dashboard');
+        });
+    }
+
+    /* -------------------------
+       MINHAS CHAVES PIX → CADASTRO PIX
+    ------------------------- */
+
+    const minhasChavesBtns = document.querySelectorAll('.pix-action-card');
+
+    if (minhasChavesBtns.length > 2) {
+        minhasChavesBtns[2].addEventListener('click', () => {
+            showPage('cadastro-pix');
+        });
+    }
+
+    const suasChavesItems = document.querySelectorAll('.pix-key-item');
+
+    suasChavesItems.forEach(item => {
+        item.addEventListener('click', () => {
+            showPage('cadastro-pix');
+        });
+    });
+
+    /* -------------------------
+       CADASTRO PIX → VOLTAR
+    ------------------------- */
+
+    const btnVoltarCadastroPix = document.getElementById('btn-voltar-cadastro-pix');
+
+    if (btnVoltarCadastroPix) {
+        btnVoltarCadastroPix.addEventListener('click', () => {
+            showPage('pix');
+        });
+    }
+
+    /* -------------------------
+       CADASTRO PIX → CONFIRMAR
+    ------------------------- */
+
+    const btnConfirmarPix = document.getElementById('btn-confirmar-pix');
+    const modalConfirmarPix = document.getElementById('modal-confirmar-pix');
+
+    if (btnConfirmarPix) {
+        btnConfirmarPix.addEventListener('click', () => {
+            modalConfirmarPix.classList.remove('hidden');
+        });
+    }
+
+    /* -------------------------
+       MODAL CONFIRMAÇÃO → PIX
+    ------------------------- */
+
+    const btnConfirmarModal = document.getElementById('btn-confirmar-modal');
+
+    if (btnConfirmarModal) {
+        btnConfirmarModal.addEventListener('click', () => {
+            modalConfirmarPix.classList.add('hidden');
+            showPage('pix');
+        });
+    }
+
 }

@@ -1,0 +1,218 @@
+
+#pix-screen {
+    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#pix-screen::-webkit-scrollbar {
+    display: none;
+}
+
+.pix-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pix-back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pix-header h1 {
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+}
+
+.pix-subtitle {
+    color: #d8d7ff;
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
+    padding: 0 20px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+.pix-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.pix-action-card {
+    background: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pix-action-card:active {
+    background: #f5f5f5;
+    transform: scale(0.98);
+}
+
+.pix-card-icon {
+    width: 50px;
+    height: 50px;
+    background: #f0eefc;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #6262b1;
+    flex-shrink: 0;
+}
+
+.icon-arrow {
+    font-size: 28px;
+    color: #6262b1;
+}
+
+.icon-qr {
+    font-size: 26px;
+    color: #6262b1;
+}
+
+.icon-keys {
+    font-size: 26px;
+    color: #6262b1;
+}
+
+.pix-card-content {
+    flex: 1;
+    text-align: left;
+}
+
+.pix-card-content h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.pix-card-content p {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    color: #999;
+}
+
+.pix-card-arrow {
+    color: #ccc;
+    font-size: 20px;
+}
+
+.pix-keys-section {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    overflow-y: auto;
+}
+
+.pix-keys-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.pix-keys-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+.pix-add-key {
+    background: none;
+    border: none;
+    color: #6262b1;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.pix-key-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pix-key-item:active {
+    background: #f0f0f0;
+}
+
+.pix-key-icon {
+    width: 45px;
+    height: 45px;
+    background: #f0eefc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.pix-key-info {
+    flex: 1;
+}
+
+.pix-key-type {
+    margin: 0;
+    font-size: 12px;
+    color: #999;
+    font-weight: 500;
+}
+
+.pix-key-value {
+    margin: 4px 0 0 0;
+    font-size: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.pix-key-arrow {
+    color: #ccc;
+    font-size: 16px;
+}
+
