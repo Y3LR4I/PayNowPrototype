@@ -1,4 +1,4 @@
-/* --- VARIÁVEIS DE ESTILO (Design System da Fintech) --- */
+
 :root {
     --primary-color: #4553bd;
     --secondary-color: #15217f;
@@ -25,7 +25,6 @@ body {
     overflow: hidden;
 }
 
-/* --- MOCKUP DO CELULAR --- */
 .smartphone {
     position: relative;
     width: 360px;
@@ -37,7 +36,6 @@ body {
     border: 4px solid #333;
 }
 
-/* Notch / Câmera Frontal */
 .smartphone::before {
     content: '';
     position: absolute;
@@ -51,7 +49,6 @@ body {
     z-index: 10;
 }
 
-/* Botão Home Virtual (Barra inferior) */
 .smartphone::after {
     content: '';
     position: absolute;
@@ -65,7 +62,6 @@ body {
     z-index: 10;
 }
 
-/* Tela Interna do Celular */
 .screen {
     width: 100%;
     height: 100%;
@@ -75,7 +71,6 @@ body {
     position: relative;
 }
 
-/* --- TELAS DO PROTÓTIPO (FINTECH) --- */
 .app-page {
     position: absolute;
     top: 0;
@@ -88,7 +83,6 @@ body {
     transition: transform 0.4s ease-in-out, opacity 0.3s;
 }
 
-/* Estado Escondido (para transições) */
 .hidden-left {
     transform: translateX(-100%);
     opacity: 0;
@@ -101,7 +95,6 @@ body {
     pointer-events: none;
 }
 
-/* --- TELA 1: LOGIN --- */
 #login-screen {
     background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
     color: white;
@@ -192,7 +185,6 @@ body {
     opacity: 1;
 }
 
-/* --- TELA 2: DASHBOARD --- */
 #dashboard-screen {
     background: var(--bg-light);
     color: var(--text-dark);
@@ -227,7 +219,6 @@ body {
     color: white;
 }
 
-/* Card de Saldo */
 .balance-card {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     padding: 20px;
@@ -247,7 +238,6 @@ body {
     margin-top: 5px;
 }
 
-/* Grid de Ações Rápidas */
 .actions-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -287,7 +277,6 @@ body {
     font-size: 1.1rem;
 }
 
-/* Lista de Transações Recentes */
 .recent-activity {
     flex-grow: 1;
     overflow-y: auto;
@@ -345,8 +334,6 @@ body {
     font-weight: 600;
     align-self: center;
 }
-
-/* --- TELA DE CADASTRO --- */
 
 #cadastro-screen {
     background: var(--bg-light);
