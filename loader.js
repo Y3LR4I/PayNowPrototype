@@ -1,5 +1,5 @@
 const PAGES = [
-    { name: 'login', styles: ['global', 'login'] },
+    { name: 'inicio', styles: ['global', 'inicio'] },
     { name: 'cadastro', styles: ['global', 'cadastro'] },
     { name: 'dados', styles: ['global', 'cadastro'] },
     { name: 'contato', styles: ['global', 'cadastro'] },

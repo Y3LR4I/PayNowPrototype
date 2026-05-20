@@ -3,7 +3,7 @@ window.addEventListener('pagesLoaded', initializeApp);
 function initializeApp() {
   const btnCriarConta = document.getElementById('btn-criar-conta');
     const btnSair = document.getElementById('btn-sair');
-    const loginScreen = document.getElementById('login-screen');
+    const inicioScreen = document.getElementById('inicio-screen');
     const dashboardScreen = document.getElementById('dashboard-screen');
     const cadastroScreen = document.getElementById('cadastro-screen');
     const cpfCnpjInput = document.getElementById('cpf-cnpj');
@@ -46,17 +46,17 @@ function initializeApp() {
     const btnFecharDocumento = document.getElementById('btn-fechar-documento');
 
     btnCriarConta.addEventListener('click', () => {
-        loginScreen.classList.add('hidden-left');
+        inicioScreen.classList.add('hidden-left');
         cadastroScreen.classList.remove('hidden-right');
     });
 
     btnVoltar.addEventListener('click', () => {
         cadastroScreen.classList.add('hidden-right');
-        loginScreen.classList.remove('hidden-left');
+        inicioScreen.classList.remove('hidden-left');
     });
 
     btnSair.addEventListener('click', () => {
-        loginScreen.classList.remove('hidden-left');
+        inicioScreen.classList.remove('hidden-left');
         dashboardScreen.classList.add('hidden-right');
     });
 
@@ -97,7 +97,7 @@ function initializeApp() {
         cadastroScreen.classList.remove('hidden-left');
         cadastroScreen.classList.add('hidden-right');
 
-        loginScreen.classList.remove('hidden-left');
+        inicioScreen.classList.remove('hidden-left');
     });
 
     cpfCnpjInput.addEventListener('input', (e) => {
@@ -160,7 +160,7 @@ function initializeApp() {
         cadastroScreen.classList.remove('hidden-left');
         cadastroScreen.classList.add('hidden-right');
 
-        loginScreen.classList.remove('hidden-left');
+        inicioScreen.classList.remove('hidden-left');
 
     });
 
@@ -209,7 +209,7 @@ function initializeApp() {
         cadastroScreen.classList.remove('hidden-left');
         cadastroScreen.classList.add('hidden-right');
 
-        loginScreen.classList.remove('hidden-left');
+        inicioScreen.classList.remove('hidden-left');
 
     });
 
@@ -259,7 +259,7 @@ function initializeApp() {
         cadastroScreen.classList.remove('hidden-left');
         cadastroScreen.classList.add('hidden-right');
 
-        loginScreen.classList.remove('hidden-left');
+        inicioScreen.classList.remove('hidden-left');
 
     });
 }
