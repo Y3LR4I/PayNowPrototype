@@ -1,5 +1,5 @@
 
-#login-screen {
+#inicio-screen {
     background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
     color: white;
     justify-content: flex-start;
@@ -26,7 +26,7 @@
     margin-top: 5px;
 }
 
-.login-form {
+.inicio-form {
     margin-top: 320px;
     margin-bottom: 40px;
 }
