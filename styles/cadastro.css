@@ -1,0 +1,238 @@
+#cadastro-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    padding-top: 80px;
+}
+
+#dados-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+#contato-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+#email-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+#documento-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.cadastro-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.cadastro-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.cadastro-header p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.cadastro-form input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #dcdde1;
+    border-radius: 14px;
+    font-size: 1rem;
+    outline: none;
+    background: white;
+}
+
+.cadastro-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.cadastro-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.cadastro-header h1 span {
+    color: var(--secondary-color);
+}
+
+.btn-continuar {
+    width: 80%;
+    padding: 14px;
+    margin-top: 18px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-continuar:hover {
+    background: #5b4bc4;
+}
+
+.top-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+#dados-screen .cadastro-header h1 {
+    margin-bottom: 18px;
+}
+
+#contato-screen .cadastro-header h1 {
+    margin-bottom: 18px;
+}
+
+#contato-screen .titulo-nome,
+#contato-screen .titulo-data {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+#dados-screen .titulo-nome,
+#dados-screen .titulo-data {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.email-brand {
+    margin-top: 20px;
+}
+
+.email-content {
+    margin-top: 30px;
+}
+
+.titulo-confirmacao {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.email-mascarado {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.codigo-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 0 6px;
+}
+
+.codigo-input {
+    width: 42px;
+    height: 55px;
+    border: 1px solid #dcdde1;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+.codigo-input:focus {
+    border-color: var(--primary-color);
+}
+
+.reenviar-codigo {
+    text-align: center;
+    margin-top: 18px;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.subtitulo-confirmacao {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.documento-content {
+    margin-top: 25px;
+    padding-bottom: 80px;
+}
+
+.upload-box {
+    width: 100%;
+    height: 220px;
+    border: 2px dashed #c8d0d8;
+    border-radius: 24px;
+    background: white;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-icon {
+    font-size: 4rem;
+    opacity: 0.7;
+}
+
+.dica-documento {
+    width: 100%;
+    min-height: 52px;
+    background: white;
+    border: 1px solid #dcdde1;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+

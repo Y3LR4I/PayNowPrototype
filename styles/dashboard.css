@@ -1,0 +1,151 @@
+
+#dashboard-screen {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.header-dash {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.user-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.user-info h2 {
+    font-size: 1.2rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+}
+
+.balance-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.2);
+}
+
+.balance-card span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.balance-card h3 {
+    font-size: 1.8rem;
+    margin-top: 5px;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.action-btn {
+    background: white;
+    border: none;
+    padding: 15px 10px;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.1s;
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
+.action-icon {
+    width: 35px;
+    height: 35px;
+    background: #f1f2f6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.recent-activity {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.recent-activity h4 {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f2f6;
+}
+
+.trans-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.trans-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.trans-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.trans-value {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.value-negative {
+    color: #ff7675;
+}
+
+.value-positive {
+    color: #2ecc71;
+}
+
+.btn-logout {
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: #ff7675;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+    align-self: center;
+}
+
