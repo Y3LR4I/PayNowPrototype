@@ -6,7 +6,9 @@ const PAGES = [
     { name: 'email', styles: ['global', 'cadastro'] },
     { name: 'documento', styles: ['global', 'cadastro'] },
     { name: 'dashboard', styles: ['global', 'dashboard'] },
-    { name: 'login', styles: ['global', 'login']}
+    { name: 'login', styles: ['global', 'login']},
+    { name: 'pix', styles: ['global', 'pix']},
+    { name: 'cadastro-pix', styles: ['global', 'cadastro-pix']}
 ];
 
 async function loadPageHTML(pageName) {

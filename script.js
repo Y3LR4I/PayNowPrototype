@@ -2,207 +2,129 @@ window.addEventListener('pagesLoaded', initializeApp);
 
 let fluxoAtual = null;
 
-function resetarTodasAsTelas() {
-    const inicioScreen = document.getElementById('inicio-screen');
-    const cadastroScreen = document.getElementById('cadastro-screen');
-    const dadosScreen = document.getElementById('dados-screen');
-    const contatoScreen = document.getElementById('contato-screen');
-    const emailScreen = document.getElementById('email-screen');
-    const documentoScreen = document.getElementById('documento-screen');
-    const loginScreen = document.getElementById('login-screen');
-    const dashboardScreen = document.getElementById('dashboard-screen');
+/* =========================
+   ROUTER (NAVEGAÇÃO LIMPA)
+========================= */
 
-  [inicioScreen, cadastroScreen, dadosScreen, contatoScreen, emailScreen, documentoScreen, loginScreen, dashboardScreen].forEach(tela => {
-        if (tela) {
-            tela.classList.remove('hidden-left', 'hidden-right');
-        }
+function showPage(name) {
+    const pages = document.querySelectorAll('.app-page');
+
+    pages.forEach(page => {
+        page.classList.add('hidden-right');
+        page.classList.remove('hidden-left');
     });
 
-  cadastroScreen?.classList.add('hidden-right');
-    dadosScreen?.classList.add('hidden-right');
-    contatoScreen?.classList.add('hidden-right');
-    emailScreen?.classList.add('hidden-right');
-    documentoScreen?.classList.add('hidden-right');
-    loginScreen?.classList.add('hidden-right');
-    dashboardScreen?.classList.add('hidden-right');
+    const target = document.getElementById(`${name}-screen`);
 
-    fluxoAtual = null;
+    if (target) {
+        target.classList.remove('hidden-right');
+        target.classList.remove('hidden-left');
+    }
 }
 
-function initializeApp() {
-  const btnCriarConta = document.getElementById('btn-criar-conta');
-    const btnEntrarConta = document.getElementById('btn-entrar-conta');
-    const btnSair = document.getElementById('btn-sair');
-    const inicioScreen = document.getElementById('inicio-screen');
-    const dashboardScreen = document.getElementById('dashboard-screen');
-    const cadastroScreen = document.getElementById('cadastro-screen');
-    const loginScreen = document.getElementById('login-screen');
-    const cpfCnpjInput = document.getElementById('cpf-cnpj');
-    const btnVoltar = document.getElementById('btn-voltar');
-    const loginInput = document.getElementById('login-input');
-    const btnContinuarLogin = document.getElementById('btn-continuar-login');
-    const btnVoltarLogin = document.getElementById('btn-voltar-login');
+/* =========================
+   INIT
+========================= */
 
+function initializeApp() {
+
+    /* -------------------------
+       BOTÕES PRINCIPAIS
+    ------------------------- */
+
+    const btnCriarConta = document.getElementById('btn-criar-conta');
+    const btnEntrarConta = document.getElementById('btn-entrar-conta');
+
+    if (btnCriarConta) {
+        btnCriarConta.addEventListener('click', () => {
+            fluxoAtual = 'cadastro';
+            showPage('cadastro');
+        });
+    }
+
+    if (btnEntrarConta) {
+        btnEntrarConta.addEventListener('click', () => {
+            fluxoAtual = 'login';
+            showPage('login');
+        });
+    }
+
+    /* -------------------------
+       CADASTRO
+    ------------------------- */
+
+    const btnVoltarCadastro = document.getElementById('btn-voltar');
     const btnContinuarCpf = document.querySelector('.btn-continuar');
-    const dadosScreen = document.getElementById('dados-screen');
 
     const btnVoltarCpf = document.getElementById('btn-voltar-cpf');
-    const btnFecharDados = document.getElementById('btn-fechar-dados');
-
-    const dataNascimentoInput = document.getElementById('data-nascimento');
-
-    const contatoScreen = document.getElementById('contato-screen');
-
-    const btnContinuarDados = document.getElementById('btn-continuar-dados');
-
-    const btnVoltarContato = document.getElementById('btn-voltar-contato');
-
-    const btnFecharContato = document.getElementById('btn-fechar-contato');
-
-    const emailScreen = document.getElementById('email-screen');
-
-    const btnContinuarContato = document.getElementById('btn-continuar-contato');
-
-    const btnVoltarEmail = document.getElementById('btn-voltar-email');
 
     const btnFecharEmail = document.getElementById('btn-fechar-email');
 
-    const emailInput = document.getElementById('email');
-
-    const emailMascarado = document.getElementById('email-mascarado');
-
-    const documentoScreen = document.getElementById('documento-screen');
-
-    const btnConfirmarEmail = document.getElementById('btn-confirmar-email');
-
     const btnVoltarDocumento = document.getElementById('btn-voltar-documento');
+
+    if (btnVoltarDocumento) {
+        btnVoltarDocumento.addEventListener('click', () => {
+            showPage('email');
+        });
+    }
 
     const btnFecharDocumento = document.getElementById('btn-fechar-documento');
 
-    btnCriarConta.addEventListener('click', () => {
-        fluxoAtual = 'cadastro';
-        inicioScreen.classList.add('hidden-left');
-        cadastroScreen.classList.remove('hidden-right');
-    });
+    if (btnFecharDocumento) {
+        btnFecharDocumento.addEventListener('click', () => {
+            fluxoAtual = null;
 
-    btnEntrarConta.addEventListener('click', () => {
-        fluxoAtual = 'login';
-        inicioScreen.classList.add('hidden-left');
-        loginScreen.classList.remove('hidden-right');
-    });
+            document.querySelectorAll('.app-page').forEach(page => {
+                page.classList.add('hidden-right');
+                page.classList.remove('hidden-left');
+            });
 
-    btnVoltar.addEventListener('click', () => {
-        resetarTodasAsTelas();
-        document.getElementById('inicio-screen').classList.remove('hidden-left');
-    });
-
-    btnSair.addEventListener('click', () => {
-        resetarTodasAsTelas();
-        document.getElementById('inicio-screen').classList.remove('hidden-left');
-    });
-
-    btnVoltarLogin.addEventListener('click', () => {
-        resetarTodasAsTelas();
-        document.getElementById('inicio-screen').classList.remove('hidden-left');
-    });
-
-    function validarLoginInput(valor) {
-        const apenasNumeros = valor.replace(/\D/g, '');
-
-      if (apenasNumeros.length === 11) return true;
-
-      if (apenasNumeros.length === 14) return true;
-
-      if ((apenasNumeros.length === 10 || apenasNumeros.length === 11) && valor.includes('(')) return true;
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailRegex.test(valor)) return true;
-
-        return false;
+            document.getElementById('inicio-screen')?.classList.remove('hidden-right');
+        });
     }
 
-    function continuarParaEmailLogin() {
-        const valor = loginInput.value.trim();
+    const btnVoltarLogin = document.getElementById('btn-voltar-login');
 
-        if (!validarLoginInput(valor)) {
-            alert('Informe um CPF, email ou telefone válido.');
-            return;
-        }
+    if (btnVoltarLogin) {
+        btnVoltarLogin.addEventListener('click', () => {
+            fluxoAtual = null;
 
-        const email = valor.includes('@') ? valor : 'contato@example.com';
-        const emailMascarado = document.getElementById('email-mascarado');
-        emailMascarado.textContent = mascararEmail(email);
+            document.querySelectorAll('.app-page').forEach(page => {
+                page.classList.add('hidden-right');
+                page.classList.remove('hidden-left');
+            });
 
-        loginScreen.classList.add('hidden-left');
-        emailScreen.classList.remove('hidden-right');
+            document.getElementById('inicio-screen')?.classList.remove('hidden-right');
+        });
     }
 
-    btnContinuarLogin.addEventListener('click', continuarParaEmailLogin);
-
-    loginInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            continuarParaEmailLogin();
-        }
-    });
-
-    loginInput.addEventListener('input', (e) => {
-        let valor = e.target.value.replace(/\D/g, '');
-
-      if (valor.length <= 11) {
-            valor = valor.replace(/^(\d{3})(\d)/, '$1.$2');
-            valor = valor.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
-            valor = valor.replace(/\.(\d{3})(\d)/, '.$1-$2');
-            e.target.value = valor;
-        }
-    });
-
-    function continuarParaDados() {
-
-        const valor = cpfCnpjInput.value.replace(/\D/g, '');
-
-        const cpfValido = valor.length === 11;
-        const cnpjValido = valor.length === 14;
-
-        if (!cpfValido && !cnpjValido) {
-            alert('Informe um CPF ou CNPJ válido.');
-            return;
-        }
-
-        cadastroScreen.classList.add('hidden-left');
-        dadosScreen.classList.remove('hidden-right');
+    if (btnFecharEmail) {
+        btnFecharEmail.addEventListener('click', () => {
+            fluxoAtual = null;
+            showPage('inicio');
+        });
     }
 
-    btnContinuarCpf.addEventListener('click', continuarParaDados);
+    if (btnVoltarCpf) {
+        btnVoltarCpf.addEventListener('click', () => {
+            showPage('cadastro');
+        });
+    }
 
-    cpfCnpjInput.addEventListener('keydown', (e) => {
-
-        if (e.key === 'Enter') {
-            continuarParaDados();
-        }
-    });
-
-    btnVoltarCpf.addEventListener('click', () => {
-        dadosScreen.classList.add('hidden-right');
-        cadastroScreen.classList.remove('hidden-left');
-    });
-
-    btnFecharDados.addEventListener('click', () => {
-        resetarTodasAsTelas();
-        document.getElementById('inicio-screen').classList.remove('hidden-left');
-    });
+    const cpfCnpjInput = document.getElementById('cpf-cnpj');
 
     cpfCnpjInput.addEventListener('input', (e) => {
-
         let valor = e.target.value.replace(/\D/g, '');
 
-      if (valor.length <= 11) {
+        // CPF
+        if (valor.length <= 11) {
+            valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+            valor = valor.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+            valor = valor.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+        }
 
-            valor = valor.replace(/^(\d{3})(\d)/, '$1.$2');
-            valor = valor.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
-            valor = valor.replace(/\.(\d{3})(\d)/, '.$1-$2');
-
-        } else {
-
+        // CNPJ
+        else {
             valor = valor.replace(/^(\d{2})(\d)/, '$1.$2');
             valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
             valor = valor.replace(/\.(\d{3})(\d)/, '.$1/$2');
@@ -212,117 +134,253 @@ function initializeApp() {
         e.target.value = valor;
     });
 
-    dataNascimentoInput.addEventListener('input', (e) => {
-
-        let valor = e.target.value.replace(/\D/g, '');
-
-        if (valor.length > 2) {
-            valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
-        }
-
-        if (valor.length > 5) {
-            valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
-        }
-
-        e.target.value = valor;
-    });
-
-    btnContinuarDados.addEventListener('click', () => {
-
-        dadosScreen.classList.add('hidden-left');
-        contatoScreen.classList.remove('hidden-right');
-
-    });
-
-    btnVoltarContato.addEventListener('click', () => {
-
-        contatoScreen.classList.add('hidden-right');
-        dadosScreen.classList.remove('hidden-left');
-
-    });
-
-    btnFecharContato.addEventListener('click', () => {
-        resetarTodasAsTelas();
-        document.getElementById('inicio-screen').classList.remove('hidden-left');
-    });
-
-    function mascararEmail(email) {
-
-        const partes = email.split('@');
-
-        if (partes.length < 2) return email;
-
-        const nome = partes[0];
-        const dominio = partes[1];
-
-        const primeiroCaractere = nome.charAt(0);
-
-        return primeiroCaractere + '******@' + dominio;
+    if (btnVoltarCadastro) {
+        btnVoltarCadastro.addEventListener('click', () => {
+            showPage('inicio');
+        });
     }
 
-    btnContinuarContato.addEventListener('click', () => {
+    function continuarCadastro() {
+        const valor = cpfCnpjInput?.value?.replace(/\D/g, '');
 
-        const email = emailInput.value;
-
-        emailMascarado.textContent = mascararEmail(email);
-
-        contatoScreen.classList.add('hidden-left');
-        emailScreen.classList.remove('hidden-right');
-
-    });
-
-    btnVoltarEmail.addEventListener('click', () => {
-        emailScreen.classList.add('hidden-right');
-
-        if (fluxoAtual === 'login') {
-            loginScreen.classList.remove('hidden-left');
-        } else {
-            contatoScreen.classList.remove('hidden-left');
+        if (!valor || (valor.length !== 11 && valor.length !== 14)) {
+            alert('Informe um CPF ou CNPJ válido.');
+            return;
         }
-    });
 
-    btnFecharEmail.addEventListener('click', () => {
-        resetarTodasAsTelas();
-        document.getElementById('inicio-screen').classList.remove('hidden-left');
-    });
+        showPage('dados');
+    }
 
-    const codigoInputs = document.querySelectorAll('.codigo-input');
+    if (btnContinuarCpf) {
+        btnContinuarCpf.addEventListener('click', continuarCadastro);
+    }
 
-    codigoInputs.forEach((input, index) => {
+    if (cpfCnpjInput) {
+        cpfCnpjInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') continuarCadastro();
+        });
+    }
 
-        input.addEventListener('input', (e) => {
+    /* -------------------------
+       DADOS → CONTATO
+    ------------------------- */
 
-            e.target.value = e.target.value.replace(/\D/g, '');
+    const btnContinuarDados = document.getElementById('btn-continuar-dados');
 
-            if (e.target.value.length === 1 && index < codigoInputs.length - 1) {
-                codigoInputs[index + 1].focus();
+    const btnFecharDados = document.getElementById('btn-fechar-dados');
+
+    if (btnFecharDados) {
+        btnFecharDados.addEventListener('click', () => {
+            showPage('inicio');
+        });
+    }
+
+    if (btnContinuarDados) {
+        btnContinuarDados.addEventListener('click', () => {
+            showPage('contato');
+        });
+    }
+
+    /* -------------------------
+       CONTATO → EMAIL
+    ------------------------- */
+
+    const btnContinuarContato = document.getElementById('btn-continuar-contato');
+
+    if (btnContinuarContato) {
+        btnContinuarContato.addEventListener('click', () => {
+            showPage('email');
+        });
+    }
+
+    /* -------------------------
+       LOGIN → EMAIL
+    ------------------------- */
+
+    const loginInput = document.getElementById('login-input');
+    const btnContinuarLogin = document.getElementById('btn-continuar-login');
+
+    function continuarLogin() {
+        const valor = loginInput?.value?.trim();
+
+        if (!valor) {
+            alert('Informe um dado válido.');
+            return;
+        }
+
+        showPage('email');
+    }
+
+    if (btnContinuarLogin) {
+        btnContinuarLogin.addEventListener('click', continuarLogin);
+    }
+
+    if (loginInput) {
+        loginInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') continuarLogin();
+        });
+    }
+
+    /* -------------------------
+       EMAIL → PRÓXIMO PASSO
+    ------------------------- */
+
+    const btnConfirmarEmail = document.getElementById('btn-confirmar-email');
+
+    if (btnConfirmarEmail) {
+        btnConfirmarEmail.addEventListener('click', () => {
+            if (fluxoAtual === 'login') {
+                showPage('dashboard');
+            } else {
+                showPage('documento');
+            }
+        });
+    }
+
+    /* -------------------------
+       VOLTAR EMAIL
+    ------------------------- */
+
+    const btnVoltarEmail = document.getElementById('btn-voltar-email');
+
+    if (btnVoltarEmail) {
+        btnVoltarEmail.addEventListener('click', () => {
+            if (fluxoAtual === 'login') {
+                showPage('login');
+            } else {
+                showPage('contato');
+            }
+        });
+    }
+
+    /* -------------------------
+       DASHBOARD → SAIR
+    ------------------------- */
+
+    const btnSair = document.getElementById('btn-sair');
+
+    if (btnSair) {
+        btnSair.addEventListener('click', () => {
+            fluxoAtual = null;
+            showPage('inicio');
+        });
+    }
+
+    const btnVoltarContato = document.getElementById('btn-voltar-contato');
+
+    if (btnVoltarContato) {
+        btnVoltarContato.addEventListener('click', () => {
+            showPage('dados');
+        });
+    }
+
+    const btnFecharContato = document.getElementById('btn-fechar-contato');
+
+    if (btnFecharContato) {
+        btnFecharContato.addEventListener('click', () => {
+            fluxoAtual = null;
+            showPage('inicio');
+        });
+    }
+    const btnOlho = document.getElementById('btn-olho');
+    const imgOlho = document.getElementById('img-olho');
+
+    let olhoAberto = true;
+
+    if (btnOlho) {
+        btnOlho.addEventListener('click', () => {
+
+            olhoAberto = !olhoAberto;
+
+            if (olhoAberto) {
+                imgOlho.src = '../fotos/olho.png';
+            } else {
+                imgOlho.src = '../fotos/olcorte.png';
             }
 
         });
+    }
 
+    /* -------------------------
+       DASHBOARD → PIX
+    ------------------------- */
+
+    const dashboardPixButtons = document.querySelectorAll('.dash-action');
+
+    if (dashboardPixButtons.length > 0) {
+        dashboardPixButtons[0].addEventListener('click', () => {
+            showPage('pix');
+        });
+    }
+
+    /* -------------------------
+       PIX → VOLTAR
+    ------------------------- */
+
+    const btnVoltarPix = document.getElementById('btn-voltar-pix');
+
+    if (btnVoltarPix) {
+        btnVoltarPix.addEventListener('click', () => {
+            showPage('dashboard');
+        });
+    }
+
+    /* -------------------------
+       MINHAS CHAVES PIX → CADASTRO PIX
+    ------------------------- */
+
+    const minhasChavesBtns = document.querySelectorAll('.pix-action-card');
+
+    if (minhasChavesBtns.length > 2) {
+        minhasChavesBtns[2].addEventListener('click', () => {
+            showPage('cadastro-pix');
+        });
+    }
+
+    const suasChavesItems = document.querySelectorAll('.pix-key-item');
+
+    suasChavesItems.forEach(item => {
+        item.addEventListener('click', () => {
+            showPage('cadastro-pix');
+        });
     });
 
-    btnConfirmarEmail.addEventListener('click', () => {
-        emailScreen.classList.add('hidden-left');
+    /* -------------------------
+       CADASTRO PIX → VOLTAR
+    ------------------------- */
 
-        if (fluxoAtual === 'login') {
-          dashboardScreen.classList.remove('hidden-right');
-        } else {
-          documentoScreen.classList.remove('hidden-right');
-        }
-    });
+    const btnVoltarCadastroPix = document.getElementById('btn-voltar-cadastro-pix');
 
-    btnVoltarDocumento.addEventListener('click', () => {
+    if (btnVoltarCadastroPix) {
+        btnVoltarCadastroPix.addEventListener('click', () => {
+            showPage('pix');
+        });
+    }
 
-        documentoScreen.classList.add('hidden-right');
-        emailScreen.classList.remove('hidden-left');
+    /* -------------------------
+       CADASTRO PIX → CONFIRMAR
+    ------------------------- */
 
-    });
+    const btnConfirmarPix = document.getElementById('btn-confirmar-pix');
+    const modalConfirmarPix = document.getElementById('modal-confirmar-pix');
 
-    btnFecharDocumento.addEventListener('click', () => {
-        resetarTodasAsTelas();
-        document.getElementById('inicio-screen').classList.remove('hidden-left');
-    });
+    if (btnConfirmarPix) {
+        btnConfirmarPix.addEventListener('click', () => {
+            modalConfirmarPix.classList.remove('hidden');
+        });
+    }
+
+    /* -------------------------
+       MODAL CONFIRMAÇÃO → PIX
+    ------------------------- */
+
+    const btnConfirmarModal = document.getElementById('btn-confirmar-modal');
+
+    if (btnConfirmarModal) {
+        btnConfirmarModal.addEventListener('click', () => {
+            modalConfirmarPix.classList.add('hidden');
+            showPage('pix');
+        });
+    }
+
 }
-
-

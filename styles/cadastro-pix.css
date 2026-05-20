@@ -1,0 +1,237 @@
+
+#cadastro-pix-screen {
+    background: white;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#cadastro-pix-screen::-webkit-scrollbar {
+    display: none;
+}
+
+.cad-pix-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: white;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cad-pix-back-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 28px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cad-pix-header h1 {
+    color: #333;
+    font-size: 18px;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+}
+
+.cad-pix-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cad-pix-content h2 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.cad-pix-subtitle {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.cad-pix-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cad-pix-option {
+    cursor: pointer;
+}
+
+.cad-pix-option input[type="radio"] {
+    display: none;
+}
+
+.cad-pix-option-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: #f9f9f9;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.cad-pix-option input[type="radio"]:checked + .cad-pix-option-card {
+    background: #f0eefc;
+    border-color: #6262b1;
+}
+
+.cad-pix-option-card:hover {
+    background: #f5f5f5;
+}
+
+.cad-pix-option-selected {
+    background: #f0eefc;
+    border-color: #6262b1;
+}
+
+.cad-pix-option-icon {
+    font-size: 32px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cad-pix-option-text {
+    flex: 1;
+}
+
+.cad-pix-option-text h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.cad-pix-option-text p {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.cad-pix-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    background: white;
+    flex-shrink: 0;
+}
+
+.cad-pix-option input[type="radio"]:checked ~ .cad-pix-radio {
+    border-color: #6262b1;
+    background: #6262b1;
+}
+
+.cad-pix-btn-confirmar {
+    background: linear-gradient(135deg, #6262b1 0%, #7b7bc0 100%);
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px;
+    margin: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cad-pix-btn-confirmar:active {
+    transform: scale(0.98);
+}
+
+.cad-pix-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.cad-pix-modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cad-pix-modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 24px;
+    text-align: center;
+    width: 90%;
+    max-width: 280px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.cad-pix-modal-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #6262b1 0%, #7b7bc0 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    margin: 0 auto 20px;
+}
+
+.cad-pix-modal-content h2 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.cad-pix-modal-content p {
+    margin: 0 0 24px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.cad-pix-modal-btn {
+    background: linear-gradient(135deg, #6262b1 0%, #7b7bc0 100%);
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.cad-pix-modal-btn:active {
+    transform: scale(0.98);
+}
+

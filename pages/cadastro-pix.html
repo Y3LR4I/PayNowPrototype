@@ -1,0 +1,86 @@
+<div id="cadastro-pix-screen" class="app-page hidden-right">
+
+    <div class="cad-pix-header">
+        <button class="cad-pix-back-btn" id="btn-voltar-cadastro-pix">
+            ←
+        </button>
+        <h1>Cadastrar chave Pix</h1>
+        <div></div>
+    </div>
+
+    <div class="cad-pix-content">
+
+        <h2>Escolha o tipo de chave</h2>
+        <p class="cad-pix-subtitle">Selecione qual informação deseja usar</p>
+
+        <div class="cad-pix-options">
+
+            <label class="cad-pix-option">
+                <input type="radio" name="pix-type" value="cpf" class="pix-option-input">
+                <div class="cad-pix-option-card">
+                    <div class="cad-pix-option-icon">📄</div>
+                    <div class="cad-pix-option-text">
+                        <h3>CPF</h3>
+                        <p>123.456.789-00</p>
+                    </div>
+                    <div class="cad-pix-radio"></div>
+                </div>
+            </label>
+
+            <label class="cad-pix-option">
+                <input type="radio" name="pix-type" value="email" class="pix-option-input">
+                <div class="cad-pix-option-card">
+                    <div class="cad-pix-option-icon">📧</div>
+                    <div class="cad-pix-option-text">
+                        <h3>E-mail</h3>
+                        <p>joao@email.com</p>
+                    </div>
+                    <div class="cad-pix-radio"></div>
+                </div>
+            </label>
+
+            <label class="cad-pix-option">
+                <input type="radio" name="pix-type" value="telefone" class="pix-option-input">
+                <div class="cad-pix-option-card">
+                    <div class="cad-pix-option-icon">📱</div>
+                    <div class="cad-pix-option-text">
+                        <h3>Telefone</h3>
+                        <p>(11) 98765-4321</p>
+                    </div>
+                    <div class="cad-pix-radio"></div>
+                </div>
+            </label>
+
+            <label class="cad-pix-option">
+                <input type="radio" name="pix-type" value="aleatoria" class="pix-option-input" checked>
+                <div class="cad-pix-option-card cad-pix-option-selected">
+                    <div class="cad-pix-option-icon">🔑</div>
+                    <div class="cad-pix-option-text">
+                        <h3>Chave aleatória</h3>
+                        <p>Gerada automaticamente</p>
+                    </div>
+                    <div class="cad-pix-radio"></div>
+                </div>
+            </label>
+
+        </div>
+
+    </div>
+
+    <button class="cad-pix-btn-confirmar" id="btn-confirmar-pix">
+        Cadastrar chave
+    </button>
+
+  <div class="cad-pix-modal hidden" id="modal-confirmar-pix">
+        <div class="cad-pix-modal-content">
+            <div class="cad-pix-modal-icon">✓</div>
+            <h2>Chave Pix cadastrada!</h2>
+            <p>Sua chave foi registrada com sucesso</p>
+            <button class="cad-pix-modal-btn" id="btn-confirmar-modal">
+                Voltar para área Pix
+            </button>
+        </div>
+    </div>
+
+</div>
+
