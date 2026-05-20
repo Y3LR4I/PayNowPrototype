@@ -1,0 +1,235 @@
+#extrato-screen {
+    background: linear-gradient(180deg, #5b61b9 0%, #3e447a 100%);
+    height: 100dvh;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+.extrato-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.extrato-header h2 {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.back-btn, .eye-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+/* Card de Saldo */
+.saldo-card-extrato {
+    background: #3e31d8;
+    border-radius: 22px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.saldo-card-extrato .saldo-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.saldo-card-extrato .saldo-info h1 {
+    color: white;
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.saldo-card-extrato .saldo-arrow {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Menu de Ações (Pix, Pagar, Recarga) */
+.extrato-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-bottom: 25px;
+}
+
+.action-item {
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: 80px;
+}
+
+.action-icon-box {
+    width: 70px;
+    height: 70px;
+    background: #3e31d8;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-icon-box img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.action-item span {
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Container de Transações */
+.transacoes-container {
+    background: #3e31d8;
+    border-radius: 24px;
+    padding: 20px 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.transacoes-container h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.transacoes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.transacoes-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cada Item de Transação */
+.transacao-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transacao-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-circle {
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.icon-received {
+    color: #3e31d8;
+}
+
+.icon-sent {
+    color: #3e31d8;
+}
+
+.transacao-detalhes h4 {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.transacao-detalhes p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.transacao-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.transacao-right .valor {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.transacao-right .data {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+/* Cores dos Valores com base na Imagem */
+.valor-positivo .valor {
+    color: #1dd1a1; /* Verde vivo */
+}
+
+.valor-negativo .valor {
+    color: #ff6b6b; /* Vermelho suave/alaranjado */
+}
+
+/* Botão Inferior "Mostrar extrato" */
+.ver-extrato-btn {
+    width: 100%;
+    background: #0000ff; /* Azul royal puro do botão */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 14px 0;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto; /* Garante que fique fixado ao fundo */
+}
+
+.hidden-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.hidden-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.app-page {
+    transition: all 0.3s ease;
+}

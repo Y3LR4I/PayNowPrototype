@@ -383,4 +383,20 @@ function initializeApp() {
         });
     }
 
+    const btnVoltarExtrato = document.getElementById("btn-voltar-extrato");
+
+    if (btnVoltarExtrato) {
+        btnVoltarExtrato.addEventListener("click", () => {
+            showPage('dashboard');
+        });
+    }
+
+    const btnSaldo = document.getElementById("btn-saldo")
+
+    if (btnSaldo) {
+        btnSaldo.addEventListener("click", () => {
+            showPage('extrato')
+        })
+    }
+
 }
