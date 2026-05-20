@@ -20,9 +20,14 @@
 
 .dashboard-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .user-avatar {
@@ -35,9 +40,29 @@
 .config-btn {
     background: none;
     border: none;
-    color: white;
-    font-size: 30px;
     cursor: pointer;
+    padding: 0;
+}
+
+.config-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.left-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-btn img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 
 .dashboard-user {
@@ -81,8 +106,10 @@
 
 .dashboard-actions {
     display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+    padding: 0; /* importante */
 }
 
 .dash-action {
@@ -95,16 +122,24 @@
     cursor: pointer;
 }
 
+.action-icon img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
 .action-icon {
-    width: 100px;
-    height: 100px;
-    background: #3f31e3;
-    border-radius: 20px;
+    width: 75px;
+    height: 75px;
+    background: #3E31D8;
+    border-radius: 18px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     color: white;
-    font-size: 42px;
+    font-size: 30px;
 }
 
 .dash-action span {
