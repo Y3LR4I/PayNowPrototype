@@ -284,6 +284,7 @@ function initializeApp() {
     }
     const btnOlho = document.getElementById('btn-olho');
     const imgOlho = document.getElementById('img-olho');
+    const saldoDashboard = document.getElementById('saldo-dashboard');
 
     let olhoAberto = true;
 
@@ -294,22 +295,59 @@ function initializeApp() {
 
             if (olhoAberto) {
                 imgOlho.src = '../fotos/olho.png';
+                saldoDashboard.textContent = 'R$ 2560,32';
             } else {
                 imgOlho.src = '../fotos/olcorte.png';
+                saldoDashboard.textContent = '••••••';
             }
 
         });
     }
 
     /* -------------------------
-       DASHBOARD → PIX
+       DASHBOARD → EXTRATO
     ------------------------- */
 
-    const dashboardPixButtons = document.querySelectorAll('.dash-action');
+    const saldoCard = document.querySelector('.saldo-card');
 
-    if (dashboardPixButtons.length > 0) {
-        dashboardPixButtons[0].addEventListener('click', () => {
-            showPage('pix');
+    if (saldoCard) {
+        saldoCard.addEventListener('click', () => {
+            showPage('extrato');
+        });
+    }
+
+    /* -------------------------
+       EXTRATO → VOLTAR
+    ------------------------- */
+
+    const btnVoltarExtrato = document.getElementById('btn-voltar-extrato');
+
+    if (btnVoltarExtrato) {
+        btnVoltarExtrato.addEventListener('click', () => {
+            showPage('dashboard');
+        });
+    }
+
+    /* -------------------------
+       EXTRATO → OLHO (MOSTRAR/OCULTAR SALDO)
+    ------------------------- */
+
+    const btnOlhoExtrato = document.getElementById('btn-olho-extrato');
+    const saldoValor = document.getElementById('saldo-valor');
+
+    let saldoVisivel = true;
+
+    if (btnOlhoExtrato) {
+        btnOlhoExtrato.addEventListener('click', () => {
+            saldoVisivel = !saldoVisivel;
+
+            if (saldoVisivel) {
+                saldoValor.textContent = 'R$ 2560,32';
+                btnOlhoExtrato.textContent = '👁';
+            } else {
+                saldoValor.textContent = '••••••';
+                btnOlhoExtrato.textContent = '👁‍🗨';
+            }
         });
     }
 

@@ -1,0 +1,231 @@
+#extrato-screen {
+    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Cabeçalho */
+.extrato-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    margin-bottom: 0;
+}
+
+.extrato-header h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+}
+
+.extrato-back-btn, .extrato-eye-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.extrato-back-btn:active, .extrato-eye-btn:active {
+    opacity: 0.7;
+}
+
+/* Card de Saldo */
+.saldo-card-extrato {
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin: 12px 20px;
+    flex-shrink: 0;
+}
+
+.saldo-card-extrato .saldo-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.saldo-card-extrato .saldo-info h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 4px 0 0 0;
+}
+
+.saldo-card-extrato .saldo-arrow {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* Menu de Ações */
+.extrato-actions {
+    display: none;
+}
+
+.action-item {
+    display: none;
+}
+
+.action-icon-box {
+    display: none;
+}
+
+
+/* Container de Transações */
+.transacoes-container {
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
+    border-radius: 24px 24px 0 0;
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.transacoes-container h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+}
+
+.transacoes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-right: 4px;
+}
+
+.transacoes-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Item de Transação */
+.transacao-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transacao-item:last-child {
+    border-bottom: none;
+}
+
+.transacao-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.icon-circle {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.icon-received {
+    color: #4ade80;
+}
+
+.icon-sent {
+    color: #ef4444;
+}
+
+.transacao-detalhes {
+    flex: 1;
+}
+
+.transacao-detalhes h4 {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.transacao-detalhes p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin: 2px 0 0 0;
+}
+
+.transacao-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.transacao-right .valor {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.transacao-right .data {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+.valor-positivo .valor {
+    color: #4ade80;
+}
+
+.valor-negativo .valor {
+    color: #ef4444;
+}
+
+/* Botão Inferior */
+.ver-extrato-btn {
+    width: calc(100% - 40px);
+    background: linear-gradient(135deg, #5b61b9 0%, #4a5298 100%);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 20px 20px 20px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.ver-extrato-btn:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+
