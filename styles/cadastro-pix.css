@@ -20,14 +20,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background: white;
-    border-bottom: 1px solid #f0f0f0;
+    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cad-pix-back-btn {
     background: none;
     border: none;
-    color: #333;
+    color: white;
     font-size: 28px;
     cursor: pointer;
     width: 40px;
@@ -38,7 +38,7 @@
 }
 
 .cad-pix-header h1 {
-    color: #333;
+    color: white;
     font-size: 18px;
     margin: 0;
     flex: 1;
@@ -91,17 +91,17 @@
 }
 
 .cad-pix-option input[type="radio"]:checked + .cad-pix-option-card {
-    background: #f0eefc;
-    border-color: #6262b1;
+    background: #ede9ff;
+    border-color: #7b7bc0;
 }
 
 .cad-pix-option-card:hover {
-    background: #f5f5f5;
+    background: #f5f3ff;
 }
 
 .cad-pix-option-selected {
-    background: #f0eefc;
-    border-color: #6262b1;
+    background: #ede9ff;
+    border-color: #7b7bc0;
 }
 
 .cad-pix-option-icon {
@@ -141,8 +141,8 @@
 }
 
 .cad-pix-option input[type="radio"]:checked ~ .cad-pix-radio {
-    border-color: #6262b1;
-    background: #6262b1;
+    border-color: #7b7bc0;
+    background: #7b7bc0;
 }
 
 .cad-pix-btn-confirmar {

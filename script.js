@@ -383,4 +383,210 @@ function initializeApp() {
         });
     }
 
+    /* -------------------------
+       PIX → TRANSFERÊNCIA (BOTÃO TRANSFERIR)
+    ------------------------- */
+
+    const pixActionCards = document.querySelectorAll('.pix-action-card');
+
+    if (pixActionCards.length > 0) {
+        pixActionCards[0].addEventListener('click', () => {
+            resetTransferenciaForm();
+            showPage('transferencia-pix');
+        });
+    }
+
+    /* -------------------------
+       FUNÇÕES PARA TRANSFERÊNCIA PIX
+    ------------------------- */
+
+    function resetTransferenciaForm() {
+        // Limpar inputs
+        document.getElementById('input-chave-pix').value = '';
+        document.getElementById('input-valor-transf').value = '';
+
+        // Resetar para primeira etapa
+        const steps = document.querySelectorAll('.transf-step');
+        steps.forEach(step => step.classList.remove('transf-step-active'));
+        steps[0].classList.add('transf-step-active');
+
+        // Limpar dados salvos
+        localStorage.removeItem('transfChavePix');
+        localStorage.removeItem('transfValor');
+    }
+
+    function goToTransfStep(stepNumber) {
+        const steps = document.querySelectorAll('.transf-step');
+        steps.forEach(step => step.classList.remove('transf-step-active'));
+        steps[stepNumber - 1].classList.add('transf-step-active');
+    }
+
+    /* -------------------------
+       VOLTAR DE TRANSFERÊNCIA → PIX
+    ------------------------- */
+
+    const btnVoltarTransf = document.getElementById('btn-voltar-transf');
+
+    if (btnVoltarTransf) {
+        btnVoltarTransf.addEventListener('click', () => {
+            showPage('pix');
+        });
+    }
+
+    /* -------------------------
+       ETAPA 1: CHAVE PIX → DESTINATÁRIO
+    ------------------------- */
+
+    const inputChavePix = document.getElementById('input-chave-pix');
+    const btnContinuarChave = document.getElementById('btn-continuar-chave');
+
+    if (btnContinuarChave) {
+        btnContinuarChave.addEventListener('click', () => {
+            const chave = inputChavePix.value.trim();
+
+            if (!chave) {
+                alert('Digite uma chave Pix válida');
+                return;
+            }
+
+            // Simular busca do destinatário
+            localStorage.setItem('transfChavePix', chave);
+
+            // Preencher dados do destinatário (simulado)
+            document.getElementById('recipient-name').textContent = 'Carlos Silva';
+            document.getElementById('recipient-chave').textContent = chave;
+            document.getElementById('resumo-destinatario').textContent = 'Carlos Silva';
+            document.getElementById('resumo-chave').textContent = chave;
+            document.getElementById('comp-destinatario').textContent = 'Carlos Silva';
+            document.getElementById('comp-chave').textContent = chave;
+
+            goToTransfStep(2);
+        });
+    }
+
+    if (inputChavePix) {
+        inputChavePix.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                btnContinuarChave.click();
+            }
+        });
+    }
+
+    /* -------------------------
+       VOLTAR ETAPA 2 → ETAPA 1
+    ------------------------- */
+
+    const btnVoltarDestinatario = document.getElementById('btn-voltar-destinatario');
+
+    if (btnVoltarDestinatario) {
+        btnVoltarDestinatario.addEventListener('click', () => {
+            goToTransfStep(1);
+        });
+    }
+
+    /* -------------------------
+       ETAPA 2: DESTINATÁRIO → VALOR
+    ------------------------- */
+
+    const btnConfirmarDestinatario = document.getElementById('btn-confirmar-destinatario');
+
+    if (btnConfirmarDestinatario) {
+        btnConfirmarDestinatario.addEventListener('click', () => {
+            goToTransfStep(3);
+        });
+    }
+
+    /* -------------------------
+       VOLTAR ETAPA 3 → ETAPA 2
+    ------------------------- */
+
+    const btnVoltarValor = document.getElementById('btn-voltar-valor');
+
+    if (btnVoltarValor) {
+        btnVoltarValor.addEventListener('click', () => {
+            goToTransfStep(2);
+        });
+    }
+
+    /* -------------------------
+       ETAPA 3: VALOR → CONFIRMAÇÃO
+    ------------------------- */
+
+    const inputValorTransf = document.getElementById('input-valor-transf');
+    const btnContinuarValor = document.getElementById('btn-continuar-valor');
+
+    if (btnContinuarValor) {
+        btnContinuarValor.addEventListener('click', () => {
+            const valor = parseFloat(inputValorTransf.value);
+
+            if (!valor || valor <= 0) {
+                alert('Digite um valor válido');
+                return;
+            }
+
+            // Salvar valor
+            localStorage.setItem('transfValor', valor.toFixed(2));
+
+            // Preencher resumo
+            const valorFormatado = 'R$ ' + valor.toFixed(2).replace('.', ',');
+            document.getElementById('resumo-valor').textContent = valorFormatado;
+            document.getElementById('comp-valor').textContent = valorFormatado;
+
+            goToTransfStep(4);
+        });
+    }
+
+    if (inputValorTransf) {
+        inputValorTransf.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                btnContinuarValor.click();
+            }
+        });
+    }
+
+    /* -------------------------
+       VOLTAR ETAPA 4 → ETAPA 3
+    ------------------------- */
+
+    const btnVoltarConfirmacao = document.getElementById('btn-voltar-confirmacao');
+
+    if (btnVoltarConfirmacao) {
+        btnVoltarConfirmacao.addEventListener('click', () => {
+            goToTransfStep(3);
+        });
+    }
+
+    /* -------------------------
+       ETAPA 4: CONFIRMAÇÃO → COMPROVANTE
+    ------------------------- */
+
+    const btnConfirmarTransf = document.getElementById('btn-confirmar-transf');
+
+    if (btnConfirmarTransf) {
+        btnConfirmarTransf.addEventListener('click', () => {
+            // Gerar ID de transação
+            const idTransacao = 'E' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('comp-id').textContent = idTransacao;
+
+            // Gerar data e hora
+            const agora = new Date();
+            const dataHora = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR');
+            document.getElementById('comp-data').textContent = dataHora;
+
+            goToTransfStep(5);
+        });
+    }
+
+    /* -------------------------
+       COMPROVANTE → PIX
+    ------------------------- */
+
+    const btnVoltarPixFinal = document.getElementById('btn-voltar-pix-final');
+
+    if (btnVoltarPixFinal) {
+        btnVoltarPixFinal.addEventListener('click', () => {
+            showPage('pix');
+        });
+    }
+
 }

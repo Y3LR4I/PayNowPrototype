@@ -8,7 +8,8 @@ const PAGES = [
     { name: 'dashboard', styles: ['global', 'dashboard'] },
     { name: 'login', styles: ['global', 'login']},
     { name: 'pix', styles: ['global', 'pix']},
-    { name: 'cadastro-pix', styles: ['global', 'cadastro-pix']}
+    { name: 'cadastro-pix', styles: ['global', 'cadastro-pix']},
+    { name: 'transferencia-pix', styles: ['global', 'transferencia-pix']}
 ];
 
 async function loadPageHTML(pageName) {

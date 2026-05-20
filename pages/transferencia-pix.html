@@ -1,0 +1,184 @@
+<div id="transferencia-pix-screen" class="app-page hidden-right">
+
+    <!-- ETAPA 1: DIGITAR CHAVE PIX -->
+    <div class="transf-step transf-step-1 transf-step-active">
+        <div class="transf-header">
+            <button class="transf-back-btn" id="btn-voltar-transf">
+                ←
+            </button>
+            <h1>Transferir Pix</h1>
+            <div></div>
+        </div>
+
+        <div class="transf-content">
+            <div class="transf-step-indicator">
+                <span class="step-number">1</span>
+                <span class="step-title">de 4</span>
+            </div>
+
+            <h2>Informe a chave Pix</h2>
+            <p class="transf-subtitle">CPF, E-mail, Telefone ou Chave Aleatória</p>
+
+            <input type="text" id="input-chave-pix" class="transf-input" placeholder="Digite a chave Pix">
+
+            <button class="transf-btn-continuar" id="btn-continuar-chave">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <!-- ETAPA 2: CONFIRMAR DESTINATÁRIO -->
+    <div class="transf-step transf-step-2">
+        <div class="transf-header">
+            <button class="transf-back-btn" id="btn-voltar-destinatario">
+                ←
+            </button>
+            <h1>Confirmar Destinatário</h1>
+            <div></div>
+        </div>
+
+        <div class="transf-content">
+            <div class="transf-step-indicator">
+                <span class="step-number">2</span>
+                <span class="step-title">de 4</span>
+            </div>
+
+            <h2>Confirme o destinatário</h2>
+            <p class="transf-subtitle">Verifique se está correto</p>
+
+            <div class="transf-recipient-card">
+                <div class="recipient-avatar">👤</div>
+                <div class="recipient-info">
+                    <h3 id="recipient-name">Carlos Silva</h3>
+                    <p id="recipient-chave">joao@email.com</p>
+                </div>
+            </div>
+
+            <p class="transf-warning">⚠️ Verifique se o nome está correto antes de continuar</p>
+
+            <button class="transf-btn-continuar" id="btn-confirmar-destinatario">
+                Confirmar
+            </button>
+        </div>
+    </div>
+
+    <!-- ETAPA 3: DIGITAR VALOR -->
+    <div class="transf-step transf-step-3">
+        <div class="transf-header">
+            <button class="transf-back-btn" id="btn-voltar-valor">
+                ←
+            </button>
+            <h1>Valor da Transferência</h1>
+            <div></div>
+        </div>
+
+        <div class="transf-content">
+            <div class="transf-step-indicator">
+                <span class="step-number">3</span>
+                <span class="step-title">de 4</span>
+            </div>
+
+            <h2>Quanto deseja transferir?</h2>
+
+            <div class="transf-valor-input-container">
+                <span class="transf-valor-prefix">R$</span>
+                <input type="number" id="input-valor-transf" class="transf-valor-input" placeholder="0,00" min="0" step="0.01">
+            </div>
+
+            <div class="transf-saldo-info">
+                <p>Saldo disponível: <strong>R$ 2.560,32</strong></p>
+            </div>
+
+            <button class="transf-btn-continuar" id="btn-continuar-valor">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <!-- ETAPA 4: CONFIRMAR TRANSFERÊNCIA -->
+    <div class="transf-step transf-step-4">
+        <div class="transf-header">
+            <button class="transf-back-btn" id="btn-voltar-confirmacao">
+                ←
+            </button>
+            <h1>Confirmar Transferência</h1>
+            <div></div>
+        </div>
+
+        <div class="transf-content">
+            <div class="transf-step-indicator">
+                <span class="step-number">4</span>
+                <span class="step-title">de 4</span>
+            </div>
+
+            <h2>Confirme os dados</h2>
+
+            <div class="transf-resumo-card">
+                <div class="resumo-item">
+                    <span class="resumo-label">Destinatário</span>
+                    <span class="resumo-valor" id="resumo-destinatario">Carlos Silva</span>
+                </div>
+                <div class="resumo-item">
+                    <span class="resumo-label">Chave Pix</span>
+                    <span class="resumo-valor" id="resumo-chave">joao@email.com</span>
+                </div>
+                <div class="resumo-item">
+                    <span class="resumo-label">Valor</span>
+                    <span class="resumo-valor resumo-valor-destaque" id="resumo-valor">R$ 100,00</span>
+                </div>
+            </div>
+
+            <button class="transf-btn-continuar" id="btn-confirmar-transf">
+                Confirmar Transferência
+            </button>
+        </div>
+    </div>
+
+    <!-- ETAPA 5: COMPROVANTE -->
+    <div class="transf-step transf-step-5">
+        <div class="transf-header">
+            <div></div>
+            <h1>Transferência Realizada</h1>
+            <div></div>
+        </div>
+
+        <div class="transf-content transf-comprovante-content">
+            <div class="comprovante-icon">✓</div>
+
+            <h2>Transferência realizada com sucesso!</h2>
+
+            <div class="transf-comprovante-card">
+                <div class="comprovante-item">
+                    <span class="comp-label">Destinatário</span>
+                    <span class="comp-valor" id="comp-destinatario">Carlos Silva</span>
+                </div>
+                <div class="comprovante-divider"></div>
+                <div class="comprovante-item">
+                    <span class="comp-label">Chave Pix</span>
+                    <span class="comp-valor" id="comp-chave">joao@email.com</span>
+                </div>
+                <div class="comprovante-divider"></div>
+                <div class="comprovante-item">
+                    <span class="comp-label">Valor</span>
+                    <span class="comp-valor comp-valor-destaque" id="comp-valor">R$ 100,00</span>
+                </div>
+                <div class="comprovante-divider"></div>
+                <div class="comprovante-item">
+                    <span class="comp-label">Data e Hora</span>
+                    <span class="comp-valor" id="comp-data">20/05/2026 14:35:22</span>
+                </div>
+                <div class="comprovante-divider"></div>
+                <div class="comprovante-item">
+                    <span class="comp-label">Identificação</span>
+                    <span class="comp-valor" id="comp-id">E2D3F4G5H6</span>
+                </div>
+            </div>
+
+            <button class="transf-btn-continuar transf-btn-voltar-pix" id="btn-voltar-pix-final">
+                Voltar para Pix
+            </button>
+        </div>
+    </div>
+
+</div>
+
