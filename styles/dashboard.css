@@ -35,7 +35,7 @@
 .user-avatar {
     width: 60px;
     height: 60px;
-    background: #3f31e3;
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
     border-radius: 50%;
 }
 
@@ -80,7 +80,7 @@
 
 .saldo-card {
     margin-top: 20px;
-    background: #3f31e3;
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
     border-radius: 22px;
     padding: 20px;
     display: flex;
@@ -136,7 +136,7 @@
 .action-icon {
     width: 75px;
     height: 75px;
-    background: #3E31D8;
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
     border-radius: 18px;
 
     display: flex;
@@ -156,7 +156,7 @@
 
 .credito-card {
     margin-top: 30px;
-    background: #3f31e3;
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
     border-radius: 22px;
     padding: 20px;
     flex-shrink: 0;
@@ -190,7 +190,7 @@
     height: 50px;
     border: none;
     border-radius: 30px;
-    background: #3f31e3;
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
     color: white;
     font-size: 18px;
     font-weight: 600;

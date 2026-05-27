@@ -1,30 +1,38 @@
-
 #pix-screen {
     background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
     height: 100%;
     padding: 0;
     box-sizing: border-box;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
-#pix-screen::-webkit-scrollbar {
-    display: none;
-}
+/* HEADER */
 
 .pix-header {
+    position: relative;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.pix-header h1 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
 }
 
 .pix-back-btn {
+    position: absolute;
+    left: 20px;
+
     background: none;
     border: none;
     color: white;
@@ -37,77 +45,65 @@
     justify-content: center;
 }
 
-.pix-header h1 {
-    color: white;
-    font-size: 20px;
-    margin: 0;
-    flex: 1;
-    text-align: center;
-    font-weight: 600;
+.pix-back-btn:active {
+    opacity: 0.7;
 }
 
-.pix-subtitle {
-    color: #d8d7ff;
-    text-align: center;
-    font-size: 14px;
-    margin: 0;
-    padding: 0 20px;
-    padding-top: 10px;
-    margin-bottom: 20px;
-}
+/* AÇÕES PIX */
 
 .pix-actions {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
+
     padding: 0 20px;
-    margin-bottom: 20px;
+
     margin-top: 10px;
-}
+    margin-bottom: 20px;
 
-.pix-action-card {
-    background: white;
-    border: none;
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.pix-action-card:active {
-    background: #f5f5f5;
-    transform: scale(0.98);
-}
-
-.pix-card-icon {
-    width: 50px;
-    height: 50px;
-    background: #ede9ff;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #7b7bc0;
     flex-shrink: 0;
 }
 
-.icon-arrow {
-    font-size: 28px;
-    color: #7b7bc0;
+.pix-action-card {
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
+
+    border: none;
+    border-radius: 18px;
+
+    padding: 18px 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
 }
 
-.icon-qr {
-    font-size: 26px;
-    color: #7b7bc0;
+.pix-action-card:active {
+    transform: scale(0.98);
+    opacity: 0.95;
 }
 
-.icon-keys {
-    font-size: 26px;
-    color: #7b7bc0;
+.pix-card-icon {
+    width: 54px;
+    height: 54px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.pix-card-icon span {
+    color: white;
+    font-size: 24px;
 }
 
 .pix-card-content {
@@ -116,80 +112,119 @@
 }
 
 .pix-card-content h3 {
-    margin: 0;
+    color: white;
     font-size: 16px;
-    color: #333;
     font-weight: 600;
+    margin: 0;
 }
 
 .pix-card-content p {
-    margin: 4px 0 0 0;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 13px;
-    color: #999;
+    margin-top: 4px;
 }
 
 .pix-card-arrow {
-    color: #ccc;
-    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
 }
 
+/* ÁREA DAS CHAVES */
+
 .pix-keys-section {
-    flex: 1;
+
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
+
+    border-radius: 24px 24px 0 0;
+
     padding: 20px;
-    background: white;
-    border-radius: 20px 20px 0 0;
+
+    flex-grow: 1;
+
     overflow-y: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+.pix-keys-section::-webkit-scrollbar {
+    display: none;
+}
+
+/* HEADER CHAVES */
 
 .pix-keys-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+
+    margin-bottom: 18px;
 }
 
 .pix-keys-header h2 {
-    margin: 0;
+    color: white;
     font-size: 18px;
-    color: #333;
     font-weight: 600;
+    margin: 0;
 }
 
 .pix-add-key {
-    background: none;
+    background: rgba(255, 255, 255, 0.12);
+
     border: none;
-    color: #7b7bc0;
-    font-size: 14px;
+
+    color: white;
+
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
     font-weight: 600;
+
     cursor: pointer;
-    padding: 0;
 }
 
+/* ITEM DE CHAVE */
+
 .pix-key-item {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 16px;
+
+    padding: 16px;
+
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px;
-    background: #f9f9f9;
-    border-radius: 12px;
+    gap: 14px;
+
     margin-bottom: 12px;
+
     cursor: pointer;
+
     transition: all 0.2s ease;
 }
 
 .pix-key-item:active {
-    background: #f0f0f0;
+    transform: scale(0.98);
 }
 
 .pix-key-icon {
-    width: 45px;
-    height: 45px;
-    background: #ede9ff;
-    border-radius: 10px;
+
+    width: 48px;
+    height: 48px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border-radius: 14px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 22px;
+
     flex-shrink: 0;
 }
 
@@ -198,21 +233,24 @@
 }
 
 .pix-key-type {
-    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+
     font-size: 12px;
-    color: #999;
-    font-weight: 500;
+
+    margin: 0;
 }
 
 .pix-key-value {
-    margin: 4px 0 0 0;
+
+    color: white;
+
     font-size: 15px;
-    color: #333;
     font-weight: 600;
+
+    margin-top: 4px;
 }
 
 .pix-key-arrow {
-    color: #ccc;
-    font-size: 16px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 18px;
 }
-

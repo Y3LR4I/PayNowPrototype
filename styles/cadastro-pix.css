@@ -1,74 +1,107 @@
-
 #cadastro-pix-screen {
-    background: white;
+    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
     height: 100%;
     padding: 0;
     box-sizing: border-box;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
-#cadastro-pix-screen::-webkit-scrollbar {
-    display: none;
-}
+/* HEADER */
 
 .cad-pix-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+    position: relative;
 
-.cad-pix-back-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 22px 20px 12px 20px;
+
+    flex-shrink: 0;
 }
 
 .cad-pix-header h1 {
     color: white;
     font-size: 18px;
-    margin: 0;
-    flex: 1;
-    text-align: center;
     font-weight: 600;
+    text-align: center;
 }
+
+.cad-pix-back-btn {
+    position: absolute;
+    left: 20px;
+
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cad-pix-back-btn:active {
+    opacity: 0.7;
+}
+
+/* CONTAINER PRINCIPAL */
 
 .cad-pix-content {
-    flex: 1;
-    padding: 20px;
+
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
+
+    border-radius: 24px 24px 0 0;
+
+    padding: 24px 20px;
+
+    margin-top: 10px;
+
+    flex-grow: 1;
+
     overflow-y: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
+.cad-pix-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* TÍTULOS */
+
 .cad-pix-content h2 {
-    margin: 0 0 8px 0;
-    font-size: 20px;
-    color: #333;
-    font-weight: 600;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+
+    margin: 0 0 6px 0;
 }
 
 .cad-pix-subtitle {
-    margin: 0 0 20px 0;
+    color: rgba(255, 255, 255, 0.7);
+
     font-size: 14px;
-    color: #999;
+
+    margin-bottom: 24px;
 }
+
+/* OPÇÕES */
 
 .cad-pix-options {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .cad-pix-option {
@@ -79,88 +112,148 @@
     display: none;
 }
 
+/* CARD */
+
 .cad-pix-option-card {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    padding: 18px 16px;
+
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 16px;
-    background: #f9f9f9;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
+    gap: 14px;
 
-.cad-pix-option input[type="radio"]:checked + .cad-pix-option-card {
-    background: #ede9ff;
-    border-color: #7b7bc0;
+    border: 2px solid transparent;
+
+    transition: all 0.25s ease;
+
+    backdrop-filter: blur(4px);
 }
 
 .cad-pix-option-card:hover {
-    background: #f5f3ff;
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.cad-pix-option-selected {
-    background: #ede9ff;
-    border-color: #7b7bc0;
+.cad-pix-option-card:active {
+    transform: scale(0.98);
 }
+
+/* CARD SELECIONADO */
+
+.cad-pix-option input[type="radio"]:checked + .cad-pix-option-card {
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ÍCONE */
 
 .cad-pix-option-icon {
-    font-size: 32px;
-    width: 50px;
-    height: 50px;
+
+    width: 54px;
+    height: 54px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border-radius: 16px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    font-size: 26px;
+
     flex-shrink: 0;
 }
+
+/* TEXTOS */
 
 .cad-pix-option-text {
     flex: 1;
 }
 
 .cad-pix-option-text h3 {
-    margin: 0;
+    color: white;
+
     font-size: 16px;
-    color: #333;
     font-weight: 600;
+
+    margin: 0;
 }
 
 .cad-pix-option-text p {
-    margin: 4px 0 0 0;
-    font-size: 14px;
-    color: #999;
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 13px;
+
+    margin-top: 4px;
 }
+
+/* RADIO */
 
 .cad-pix-radio {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ddd;
+
+    width: 22px;
+    height: 22px;
+
     border-radius: 50%;
-    background: white;
+
+    border: 2px solid rgba(255, 255, 255, 0.35);
+
+    background: transparent;
+
     flex-shrink: 0;
+
+    transition: all 0.25s ease;
 }
 
-.cad-pix-option input[type="radio"]:checked ~ .cad-pix-radio {
-    border-color: #7b7bc0;
-    background: #7b7bc0;
+.cad-pix-option input[type="radio"]:checked + .cad-pix-option-card .cad-pix-radio {
+
+    background: white;
+
+    border-color: white;
+
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
 }
+
+/* BOTÃO */
 
 .cad-pix-btn-confirmar {
-    background: linear-gradient(135deg, #6262b1 0%, #7b7bc0 100%);
-    border: none;
+
+    width: calc(100% - 40px);
+
+    background: linear-gradient(135deg, #5b61b9 0%, #4a5298 100%);
+
     color: white;
+
+    border: none;
+
+    border-radius: 30px;
+
+    padding: 16px 0;
+
     font-size: 16px;
     font-weight: 600;
-    padding: 16px;
-    margin: 20px;
-    border-radius: 30px;
+
     cursor: pointer;
+
+    margin: 16px 20px 20px 20px;
+
     transition: all 0.3s ease;
+
+    flex-shrink: 0;
 }
 
 .cad-pix-btn-confirmar:active {
     transform: scale(0.98);
+    opacity: 0.9;
 }
+
+/* MODAL */
 
 .cad-pix-modal {
     position: fixed;
@@ -168,12 +261,17 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+
+    background: rgba(0, 0, 0, 0.55);
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     z-index: 1000;
+
     opacity: 1;
+
     transition: opacity 0.3s ease;
 }
 
@@ -182,56 +280,97 @@
     pointer-events: none;
 }
 
+/* CONTEÚDO MODAL */
+
 .cad-pix-modal-content {
-    background: white;
-    border-radius: 20px;
-    padding: 40px 24px;
+
+    background: linear-gradient(135deg, #5451a8 0%, #4a4896 100%);
+
+    border-radius: 24px;
+
+    padding: 36px 24px;
+
     text-align: center;
+
     width: 90%;
-    max-width: 280px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
+/* ÍCONE MODAL */
+
 .cad-pix-modal-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #6262b1 0%, #7b7bc0 100%);
+
+    width: 82px;
+    height: 82px;
+
+    background: rgba(255, 255, 255, 0.12);
+
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 40px;
     color: white;
+
     margin: 0 auto 20px;
 }
 
+/* TEXTO MODAL */
+
 .cad-pix-modal-content h2 {
-    margin: 0 0 8px 0;
-    font-size: 20px;
-    color: #333;
-    font-weight: 600;
+    color: white;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
 }
 
 .cad-pix-modal-content p {
-    margin: 0 0 24px 0;
+    color: rgba(255, 255, 255, 0.7);
+
     font-size: 14px;
-    color: #999;
+
+    margin-bottom: 24px;
 }
 
+/* BOTÃO MODAL */
+
 .cad-pix-modal-btn {
-    background: linear-gradient(135deg, #6262b1 0%, #7b7bc0 100%);
-    border: none;
+
+    width: 100%;
+
+    background: linear-gradient(135deg, #5b61b9 0%, #4a5298 100%);
+
     color: white;
+
+    border: none;
+
+    border-radius: 30px;
+
+    padding: 14px 0;
+
     font-size: 16px;
     font-weight: 600;
-    padding: 14px 24px;
-    border-radius: 30px;
+
     cursor: pointer;
-    width: 100%;
+
     transition: all 0.3s ease;
 }
 
 .cad-pix-modal-btn:active {
     transform: scale(0.98);
+    opacity: 0.9;
 }
 
+/* SOMBRA GERAL */
+
+.cad-pix-content,
+.cad-pix-option-card,
+.cad-pix-btn-confirmar {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
