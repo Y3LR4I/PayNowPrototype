@@ -17,7 +17,7 @@
 }
 
 body {
-    background-color: #dfe6e9;
+    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,15 +31,15 @@ body {
     height: 740px;
     background: var(--phone-border);
     border-radius: 40px;
-    padding: 12px;
+    padding: 6px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border: 4px solid #333;
+    border: 1px solid #333;
 }
 
 .smartphone::before {
     content: '';
     position: absolute;
-    top: 12px;
+    top: 4px;
     left: 50%;
     transform: translateX(-50%);
     width: 150px;
@@ -65,7 +65,7 @@ body {
 .screen {
     width: 100%;
     height: 100%;
-    background: var(--bg-light);
+    background: linear-gradient(135deg, #6262b1 0%, #646271 100%);
     border-radius: 32px;
     position: relative;
 
@@ -88,6 +88,7 @@ body {
 
     transition: transform 0.4s ease-in-out, opacity 0.3s;
 
+    will-change: transform;
     overflow-y: auto;
 
     scrollbar-width: none;
@@ -109,4 +110,5 @@ body {
     opacity: 0;
     pointer-events: none;
 }
+
 

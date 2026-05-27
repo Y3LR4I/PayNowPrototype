@@ -1,20 +1,45 @@
 window.addEventListener('pagesLoaded', initializeApp);
 
 let fluxoAtual = null;
+let saldoAtual = 2560.32;
+let saldoVisivel = true;
 
-function showPage(name) {
-  const pages = document.querySelectorAll('.app-page');
+function showPage(name, direction = 'forward') {
 
-  pages.forEach(page => {
-    page.classList.add('hidden-right');
-    page.classList.remove('hidden-left');
-  });
+  const currentPage = document.querySelector(
+    '.app-page:not(.hidden-right):not(.hidden-left)'
+  );
 
-  const target = document.getElementById(`${name}-screen`);
+  const nextPage = document.getElementById(`${name}-screen`);
 
-  if (target) {
-    target.classList.remove('hidden-right');
-    target.classList.remove('hidden-left');
+  if (!nextPage || currentPage === nextPage) return;
+
+  /*
+    FORWARD
+    Nova tela entra da direita
+    Tela atual sai pra esquerda
+  */
+  if (direction === 'forward') {
+
+    currentPage.classList.add('hidden-left');
+    currentPage.classList.remove('hidden-right');
+
+    nextPage.classList.remove('hidden-right');
+    nextPage.classList.remove('hidden-left');
+  }
+
+  /*
+    BACK
+    Nova tela entra da esquerda
+    Tela atual sai pra direita
+  */
+  if (direction === 'back') {
+
+    currentPage.classList.add('hidden-right');
+    currentPage.classList.remove('hidden-left');
+
+    nextPage.classList.remove('hidden-left');
+    nextPage.classList.remove('hidden-right');
   }
 }
 
@@ -26,14 +51,14 @@ function initializeApp() {
   if (btnCriarConta) {
     btnCriarConta.addEventListener('click', () => {
       fluxoAtual = 'cadastro';
-      showPage('cadastro');
+      showPage('cadastro', 'forward');
     });
   }
 
   if (btnEntrarConta) {
     btnEntrarConta.addEventListener('click', () => {
       fluxoAtual = 'login';
-      showPage('login');
+      showPage('login', 'forward');
     });
   }
 
@@ -48,7 +73,7 @@ function initializeApp() {
 
   if (btnVoltarDocumento) {
     btnVoltarDocumento.addEventListener('click', () => {
-      showPage('email');
+      showPage('email', 'back');
     });
   }
 
@@ -85,13 +110,13 @@ function initializeApp() {
   if (btnFecharEmail) {
     btnFecharEmail.addEventListener('click', () => {
       fluxoAtual = null;
-      showPage('inicio');
+      showPage('inicio', 'back');
     });
   }
 
   if (btnVoltarCpf) {
     btnVoltarCpf.addEventListener('click', () => {
-      showPage('cadastro');
+      showPage('cadastro', 'back');
     });
   }
 
@@ -116,7 +141,7 @@ function initializeApp() {
 
   if (btnVoltarCadastro) {
     btnVoltarCadastro.addEventListener('click', () => {
-      showPage('inicio');
+      showPage('inicio', 'back');
     });
   }
 
@@ -147,7 +172,7 @@ function initializeApp() {
 
   if (btnFecharDados) {
     btnFecharDados.addEventListener('click', () => {
-      showPage('inicio');
+      showPage('inicio', 'back');
     });
   }
 
@@ -206,9 +231,9 @@ function initializeApp() {
   if (btnVoltarEmail) {
     btnVoltarEmail.addEventListener('click', () => {
       if (fluxoAtual === 'login') {
-        showPage('login');
+        showPage('login', 'back');
       } else {
-        showPage('contato');
+        showPage('contato', 'back');
       }
     });
   }
@@ -226,7 +251,7 @@ function initializeApp() {
 
   if (btnVoltarContato) {
     btnVoltarContato.addEventListener('click', () => {
-      showPage('dados');
+      showPage('dados', 'back');
     });
   }
 
@@ -235,30 +260,28 @@ function initializeApp() {
   if (btnFecharContato) {
     btnFecharContato.addEventListener('click', () => {
       fluxoAtual = null;
-      showPage('inicio');
+      showPage('inicio', 'back');
     });
   }
   const saldoDashboard = document.getElementById('saldo-dashboard');
 
   const btnOlho = document.getElementById('btn-olho');
   const imgOlho = document.getElementById('img-olho');
+  const faturaCartao = document.getElementById('fatura-cartao');
+  const limiteCartao = document.getElementById('limite-cartao');
 
-  let olhoAberto = true;
+
 
   if (btnOlho) {
+
     btnOlho.addEventListener('click', () => {
 
-      olhoAberto = !olhoAberto;
+      saldoVisivel = !saldoVisivel;
 
-      if (olhoAberto) {
-        imgOlho.src = '../fotos/olho.png';
-        saldoDashboard.textContent = 'R$ 2560,32';
-      } else {
-        imgOlho.src = '../fotos/olcorte.png';
-        saldoDashboard.textContent = '••••••';
-      }
+      atualizarVisibilidadeSaldo();
 
     });
+
   }
 
   const dashboardPixButtons = document.querySelectorAll('.dash-action');
@@ -286,22 +309,62 @@ function initializeApp() {
   }
 
   const btnOlhoExtrato = document.getElementById('btn-olho-extrato');
+  let imgOlhoExtrato = document.getElementById('img-olho-extrato');
   const saldoValor = document.getElementById('saldo-valor');
 
-  let saldoVisivel = true;
+  function atualizarVisibilidadeSaldo() {
+
+    imgOlhoExtrato = document.getElementById('img-olho-extrato');
+
+    const saldoFormatado =
+      'R$ ' + saldoAtual.toFixed(2).replace('.', ',');
+
+    // DASHBOARD
+    if (saldoDashboard) {
+
+      saldoDashboard.textContent =
+        saldoVisivel ? saldoFormatado : '••••••';
+
+      faturaCartao.textContent =
+        saldoVisivel ? saldoFormatado : '••••••';
+
+      limiteCartao.textContent =
+        saldoVisivel
+          ? 'Limite disponível: R$ 206,23'
+          : 'Limite disponível: ••••••';
+
+      imgOlho.src =
+        saldoVisivel
+          ? './fotos/olho.png'
+          : './fotos/olcorte.png';
+    }
+
+    // EXTRATO
+    if (saldoValor) {
+
+      saldoValor.textContent =
+        saldoVisivel ? saldoFormatado : '••••••';
+
+      imgOlhoExtrato.src =
+        saldoVisivel
+          ? './fotos/olho.png'
+          : './fotos/olcorte.png';
+    }
+  }
+
+  atualizarVisibilidadeSaldo();
+
 
   if (btnOlhoExtrato) {
+
     btnOlhoExtrato.addEventListener('click', () => {
+
       saldoVisivel = !saldoVisivel;
 
-      if (saldoVisivel) {
-        saldoValor.textContent = 'R$ 2560,32';
-        btnOlhoExtrato.textContent = '👁';
-      } else {
-        saldoValor.textContent = '••••••';
-        btnOlhoExtrato.textContent = '👁‍🗨';
-      }
+      atualizarVisibilidadeSaldo();
+
     });
+
   }
 
   const btnVoltarPix = document.getElementById('btn-voltar-pix');
@@ -377,8 +440,17 @@ function initializeApp() {
 
   function goToTransfStep(stepNumber) {
     const steps = document.querySelectorAll('.transf-step');
+
     steps.forEach(step => step.classList.remove('transf-step-active'));
-    steps[stepNumber - 1].classList.add('transf-step-active');
+
+    if (steps[stepNumber - 1]) {
+      steps[stepNumber - 1].classList.add('transf-step-active');
+    } else {
+      console.error('Step inválido:', stepNumber);
+    }
+
+    const erroSaldo = document.getElementById('erro-saldo');
+    if (erroSaldo) erroSaldo.textContent = '';
   }
 
   const btnVoltarTransf = document.getElementById('btn-voltar-transf');
@@ -447,20 +519,90 @@ function initializeApp() {
   }
 
   const inputValorTransf = document.getElementById('input-valor-transf');
+
+  if (inputValorTransf) {
+
+    inputValorTransf.addEventListener('input', (e) => {
+
+      inputValorTransf.addEventListener('input', (e) => {
+        erroSaldo.textContent = ''; // 👈 limpa erro sempre que digita
+
+        let valor = e.target.value;
+
+        valor = valor.replace(/\D/g, '');
+
+        if (valor.length === 0) {
+          e.target.value = '';
+          return;
+        }
+
+        valor = (Number(valor) / 100).toFixed(2);
+        valor = valor.replace('.', ',');
+        valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        e.target.value = valor;
+      });
+
+      let valor = e.target.value;
+
+      // remove tudo que não for número
+      valor = valor.replace(/\D/g, '');
+
+      // evita vazio
+      if (valor.length === 0) {
+        e.target.value = '';
+        return;
+      }
+
+      // transforma em centavos
+      valor = (Number(valor) / 100).toFixed(2);
+
+      // troca ponto por vírgula
+      valor = valor.replace('.', ',');
+
+      // adiciona separador de milhar
+      valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+      e.target.value = valor;
+
+    });
+
+    atualizarVisibilidadeSaldo();
+
+  }
+
   const btnContinuarValor = document.getElementById('btn-continuar-valor');
+
+  const erroSaldo = document.getElementById('erro-saldo');
 
   if (btnContinuarValor) {
     btnContinuarValor.addEventListener('click', () => {
-      const valor = parseFloat(inputValorTransf.value);
+
+      const valorTexto = inputValorTransf.value
+        .replace(/\./g, '')
+        .replace(',', '.');
+
+      const valor = parseFloat(valorTexto);
 
       if (!valor || valor <= 0) {
         alert('Digite um valor válido');
         return;
       }
 
+      // 🔴 VALIDAÇÃO ANTES DE AVANÇAR
+      if (valor > saldoAtual) {
+        erroSaldo.textContent = 'Saldo insuficiente';
+        return; // ❌ NÃO AVANÇA
+      }
+
+      // limpa erro se estiver ok
+      erroSaldo.textContent = '';
+
       localStorage.setItem('transfValor', valor.toFixed(2));
 
-      const valorFormatado = 'R$ ' + valor.toFixed(2).replace('.', ',');
+      const valorFormatado =
+        'R$ ' + valor.toFixed(2).replace('.', ',');
+
       document.getElementById('resumo-valor').textContent = valorFormatado;
       document.getElementById('comp-valor').textContent = valorFormatado;
 
@@ -488,14 +630,56 @@ function initializeApp() {
 
   if (btnConfirmarTransf) {
     btnConfirmarTransf.addEventListener('click', () => {
-      const idTransacao = 'E' + Math.random().toString(36).substr(2, 9).toUpperCase();
+
+      // pega valor digitado
+      const valorTransferencia = parseFloat(
+        inputValorTransf.value
+          .replace(/\./g, '')
+          .replace(',', '.')
+      );
+
+      // valida saldo
+      const erroSaldo = document.getElementById('erro-saldo');
+
+      if (valorTransferencia > saldoAtual) {
+        erroSaldo.textContent = 'Saldo insuficiente';
+        return;
+      } else {
+        erroSaldo.textContent = '';
+      }
+
+      // diminui saldo
+      saldoAtual -= valorTransferencia;
+
+      atualizarVisibilidadeSaldo();
+
+      // atualiza saldo disponível da transferência
+      const saldoInfo = document.querySelector('.transf-saldo-info strong');
+
+      if (saldoInfo) {
+        saldoInfo.textContent =
+          'R$ ' + saldoAtual.toFixed(2).replace('.', ',');
+      }
+
+      // gera id da transação
+      const idTransacao =
+        'E' + Math.random().toString(36).substr(2, 9).toUpperCase();
+
       document.getElementById('comp-id').textContent = idTransacao;
 
+      // gera data/hora
       const agora = new Date();
-      const dataHora = agora.toLocaleDateString('pt-BR') + ' ' + agora.toLocaleTimeString('pt-BR');
+
+      const dataHora =
+        agora.toLocaleDateString('pt-BR') +
+        ' ' +
+        agora.toLocaleTimeString('pt-BR');
+
       document.getElementById('comp-data').textContent = dataHora;
 
+      // vai para comprovante
       goToTransfStep(5);
+
     });
   }
 
@@ -503,7 +687,7 @@ function initializeApp() {
 
   if (btnVoltarPixFinal) {
     btnVoltarPixFinal.addEventListener('click', () => {
-      showPage('pix');
+      showPage('dashboard');
     });
   }
 
