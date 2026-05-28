@@ -12,13 +12,24 @@ function showPage(name, direction = 'forward') {
 
   const nextPage = document.getElementById(`${name}-screen`);
 
-  if (!nextPage || currentPage === nextPage) return;
+  console.log('Tela atual:', currentPage);
+  console.log('Próxima tela:', nextPage);
 
-  /*
-    FORWARD
-    Nova tela entra da direita
-    Tela atual sai pra esquerda
-  */
+  if (!nextPage) {
+    console.error('Tela não encontrada:', name);
+    return;
+  }
+
+  // se não tiver tela atual
+  if (!currentPage) {
+    nextPage.classList.remove('hidden-right');
+    nextPage.classList.remove('hidden-left');
+    return;
+  }
+
+  // evita repetir mesma tela
+  if (currentPage === nextPage) return;
+
   if (direction === 'forward') {
 
     currentPage.classList.add('hidden-left');
@@ -28,11 +39,6 @@ function showPage(name, direction = 'forward') {
     nextPage.classList.remove('hidden-left');
   }
 
-  /*
-    BACK
-    Nova tela entra da esquerda
-    Tela atual sai pra direita
-  */
   if (direction === 'back') {
 
     currentPage.classList.add('hidden-right');
@@ -70,11 +76,43 @@ function initializeApp() {
   const btnFecharEmail = document.getElementById('btn-fechar-email');
 
   const btnVoltarDocumento = document.getElementById('btn-voltar-documento');
+  const btnTirarFoto = document.getElementById('btn-tirar-foto');
+
 
   if (btnVoltarDocumento) {
     btnVoltarDocumento.addEventListener('click', () => {
       showPage('email', 'back');
     });
+  }
+
+  let documentoPronto = false;
+
+  if (btnTirarFoto) {
+
+    btnTirarFoto.addEventListener('click', () => {
+
+      // PRIMEIRO CLIQUE
+      if (!documentoPronto) {
+
+        documentoPronto = true;
+
+        btnTirarFoto.textContent = 'Enviar documento';
+
+        // muda ícone/opcional
+        document.querySelector('.upload-icon').textContent = '✅';
+
+        return;
+      }
+
+      // SEGUNDO CLIQUE
+      showPage('loading');
+
+      setTimeout(() => {
+        showPage('finalizacao');
+      }, 6000);
+
+    });
+
   }
 
   const btnFecharDocumento = document.getElementById('btn-fechar-documento');
@@ -568,6 +606,31 @@ function initializeApp() {
     });
 
     atualizarVisibilidadeSaldo();
+
+  }
+
+  const btnVoltarInicio = document.getElementById('btn-voltar-inicio');
+
+  if (btnVoltarInicio) {
+
+    btnVoltarInicio.addEventListener('click', () => {
+
+      fluxoAtual = null;
+
+      // esconde todas as telas
+      document.querySelectorAll('.app-page').forEach(page => {
+
+        page.classList.add('hidden-right');
+        page.classList.remove('hidden-left');
+
+      });
+
+      // mostra início
+      document
+        .getElementById('inicio-screen')
+        ?.classList.remove('hidden-right');
+
+    });
 
   }
 

@@ -5,12 +5,14 @@ const PAGES = [
     { name: 'contato', styles: ['global', 'cadastro'] },
     { name: 'email', styles: ['global', 'cadastro'] },
     { name: 'documento', styles: ['global', 'cadastro'] },
+    { name: 'loading', styles: ['global', 'load-fin'] },
+    { name: 'finalizacao', styles: ['global', 'load-fin'] },
     { name: 'dashboard', styles: ['global', 'dashboard'] },
-    { name: 'login', styles: ['global', 'login']},
-    { name: 'pix', styles: ['global', 'pix']},
-    { name: 'cadastro-pix', styles: ['global', 'cadastro-pix']},
-    { name: 'transferencia-pix', styles: ['global', 'transferencia-pix']},
-    { name: 'extrato', styles: ['global', 'extrato']}
+    { name: 'login', styles: ['global', 'login'] },
+    { name: 'pix', styles: ['global', 'pix'] },
+    { name: 'cadastro-pix', styles: ['global', 'cadastro-pix'] },
+    { name: 'transferencia-pix', styles: ['global', 'transferencia-pix'] },
+    { name: 'extrato', styles: ['global', 'extrato'] }
 ];
 
 async function loadPageHTML(pageName) {
@@ -25,7 +27,7 @@ async function loadPageHTML(pageName) {
 }
 
 function loadStylesheet(styleName) {
-  if (document.querySelector(`link[href="styles/${styleName}.css"]`)) {
+    if (document.querySelector(`link[href="styles/${styleName}.css"]`)) {
         return;
     }
 
@@ -47,17 +49,17 @@ async function initializePages() {
         return;
     }
 
-  for (const page of PAGES) {
+    for (const page of PAGES) {
         const html = await loadPageHTML(page.name);
         if (html) {
             screenContainer.insertAdjacentHTML('beforeend', html);
         }
     }
 
-  const allStyles = [...new Set(PAGES.flatMap(p => p.styles))];
+    const allStyles = [...new Set(PAGES.flatMap(p => p.styles))];
     loadStyles(allStyles);
 
-  window.dispatchEvent(new Event('pagesLoaded'));
+    window.dispatchEvent(new Event('pagesLoaded'));
 }
 
 document.addEventListener('DOMContentLoaded', initializePages);
